@@ -736,7 +736,7 @@ StScrollBar {
 
 /* TOP BAR */
 #panel {
-  background-color: scale-alpha(#000000, 0.5);
+  background-color: rgba(36, 36, 36, 0.5);
   /* transition from solid to transparent */
   transition-duration: 250ms;
   font-weight: bold;
@@ -747,7 +747,7 @@ StScrollBar {
     spacing: 0; }
   #panel .panel-corner {
     -panel-corner-radius: 0;
-    -panel-corner-background-color: scale-alpha(#000000, 0.5);
+    -panel-corner-background-color: rgba(36, 36, 36, 0.5);
     -panel-corner-border-width: 2px;
     -panel-corner-border-color: transparent; }
     #panel .panel-corner:active, #panel .panel-corner:overview, #panel .panel-corner:focus {
@@ -760,7 +760,7 @@ StScrollBar {
     -natural-hpadding: 12px;
     -minimum-hpadding: 6px;
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.7);
+    color: #dedede;
     text-shadow: none;
     transition-duration: 150ms; }
     #panel .panel-button .app-menu-icon {
@@ -773,6 +773,7 @@ StScrollBar {
       icon-shadow: none; }
     #panel .panel-button:hover {
       color: rgba(255, 255, 255, 0.85);
+      background-color: rgba(255, 255, 255, 0.1);
       text-shadow: none; }
       #panel .panel-button:hover .system-status-icon,
       #panel .panel-button:hover .app-menu-icon > StIcon,
@@ -799,16 +800,16 @@ StScrollBar {
   #panel .screencast-indicator {
     color: #FF6D00; }
   #panel.solid {
-    background-color: scale-alpha(#000000, 0.5);
+    background-color: rgba(36, 36, 36, 0.5);
     /* transition from transparent to solid */
     transition-duration: 250ms;
     background-gradient-direction: none; }
     #panel.solid:overview {
       background-color: transparent; }
     #panel.solid .panel-corner {
-      -panel-corner-background-color: scale-alpha(#000000, 0.5); }
+      -panel-corner-background-color: rgba(36, 36, 36, 0.5); }
     #panel.solid .panel-button {
-      color: rgba(255, 255, 255, 0.7);
+      color: #dedede;
       text-shadow: none; }
       #panel.solid .panel-button:hover, #panel.solid .panel-button:active, #panel.solid .panel-button:overview, #panel.solid .panel-button:focus, #panel.solid .panel-button:checked {
         color: rgba(255, 255, 255, 0.85); }

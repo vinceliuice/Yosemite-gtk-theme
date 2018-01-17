@@ -843,7 +843,7 @@ StScrollBar {
     -natural-hpadding: 12px;
     -minimum-hpadding: 6px;
     font-weight: bold;
-    color: $inverse_secondary_fg_color;
+    color: $panel_fg_color;
     text-shadow: none;
     transition-duration: $longer_duration;
 
@@ -862,6 +862,7 @@ StScrollBar {
 
     &:hover {
       color: $inverse_fg_color;
+      background-color: $track_color;
       text-shadow: none;
 
       .system-status-icon,
@@ -916,7 +917,7 @@ StScrollBar {
     }
 
     .panel-button {
-      color: $inverse_secondary_fg_color;
+      color: $panel_fg_color;
       text-shadow: none;
 
       &:hover, &:active, &:overview, &:focus, &:checked {

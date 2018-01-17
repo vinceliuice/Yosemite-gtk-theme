@@ -922,6 +922,14 @@ headerbar,
     .csd headerbar:backdrop, .csd
     .titlebar:backdrop:not(headerbar) {
       background-color: #F6F6F6; }
+  .maximized headerbar, .maximized
+  .titlebar:not(headerbar) {
+    background-color: #e5e5e5;
+    border-bottom: 1px solid #afafaf; }
+    .maximized headerbar:backdrop, .maximized
+    .titlebar:backdrop:not(headerbar) {
+      background-color: #f6f6f6;
+      border-color: #d5d5d5; }
   headerbar .title,
   .titlebar:not(headerbar) .title {
     padding-left: 12px;
@@ -976,7 +984,8 @@ headerbar,
   .default-decoration.titlebar:backdrop:not(headerbar) {
     min-height: 28px;
     padding: 0 4px;
-    background-color: #e5e5e5;
+    background-color: rgba(229, 229, 229, 0.95);
+    background-image: linear-gradient(0deg, #E2E2E2 0%, #f5f5f5 100%);
     border: none;
     box-shadow: none; }
     .maximized headerbar.default-decoration, .maximized .csd headerbar.default-decoration, .maximized headerbar.default-decoration:backdrop, .maximized .csd headerbar.default-decoration:backdrop, .maximized
@@ -984,7 +993,7 @@ headerbar,
     .default-decoration.titlebar:not(headerbar), .maximized
     .default-decoration.titlebar:backdrop:not(headerbar), .maximized .csd
     .default-decoration.titlebar:backdrop:not(headerbar) {
-      background-color: #e5e5e5; }
+      background-color: rgba(229, 229, 229, 0.95); }
 
 .titlebar {
   border-radius: 6px 6px 0 0; }
@@ -1004,6 +1013,7 @@ headerbar:last-child, headerbar:last-child:backdrop {
 window > .titlebar:not(headerbar), window > .titlebar:not(headerbar):backdrop, window.csd > .titlebar:not(headerbar), window.csd > .titlebar:not(headerbar):backdrop {
   padding: 0;
   background: none;
+  background-image: none;
   border: none;
   box-shadow: none; }
 .titlebar:not(headerbar) > separator {
@@ -1612,10 +1622,13 @@ menubar,
   -GtkWidget-window-dragging: true;
   padding: 0px;
   background-color: #e5e5e5;
-  color: rgba(40, 32, 32, 0.8); }
+  background-image: linear-gradient(180deg, #d2d2d2 0%, #d6d6d6 75%, #dedede 100%);
+  color: rgba(40, 32, 32, 0.8);
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.12); }
   menubar:backdrop,
   .menubar:backdrop {
-    color: rgba(40, 32, 32, 0.5); }
+    color: rgba(40, 32, 32, 0.5);
+    background-image: none; }
   menubar > menuitem,
   .menubar > menuitem {
     transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
@@ -1629,7 +1642,8 @@ menubar,
       border-color: #0e6bff;
       background-image: linear-gradient(180deg, #4c97fe 0%, #0564e3 100%);
       box-shadow: none;
-      border: 1px none solid #0e6bff; }
+      border: 1px none solid #0e6bff;
+      text-shadow: 0 -1px rgba(255, 255, 255, 0.04), -1px 0px rgba(32, 32, 32, 0.05), 1px 0px rgba(32, 32, 32, 0.05), 0px 1px rgba(32, 32, 32, 0.3), 0px 2px rgba(32, 32, 32, 0.05); }
     menubar > menuitem:disabled,
     .menubar > menuitem:disabled {
       color: rgba(40, 32, 32, 0.2);
