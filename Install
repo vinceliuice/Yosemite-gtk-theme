@@ -35,7 +35,7 @@ srcdir=${repodir}/src
 	echo "MetacityTheme=Yosemite${color}" >> ${themedir}/index.theme
 	echo "IconTheme=Adwaita" >> ${themedir}/index.theme
 	echo "CursorTheme=Adwaita" >> ${themedir}/index.theme
-	echo "ButtonLayout=menu:minimize,maximize,close" >> ${themedir}/index.theme
+	echo "ButtonLayout=close,minimize,maximize:menu" >> ${themedir}/index.theme
 
 	# Install GNOME Shell Theme
 	install -d ${themedir}/gnome-shell
@@ -160,11 +160,9 @@ srcdir=${repodir}/src
 		metacity-theme${color}.xml \
 		${themedir}/metacity-1/metacity-theme.xml
 
-	cp -ur \
-		metacity-theme-1.xml \
-		metacity-theme-2.xml \
-		metacity-theme-3.xml \
-		${themedir}/metacity-1
+	ln -s metacity-theme.xml metacity-theme-1.xml
+	ln -s metacity-theme.xml metacity-theme-2.xml
+	ln -s metacity-theme.xml metacity-theme-3.xml
 
 	cp -ur \
 		*.png \
