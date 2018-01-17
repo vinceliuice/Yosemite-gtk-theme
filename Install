@@ -160,14 +160,15 @@ srcdir=${repodir}/src
 		metacity-theme${color}.xml \
 		${themedir}/metacity-1/metacity-theme.xml
 
-	ln -s metacity-theme.xml metacity-theme-1.xml
-	ln -s metacity-theme.xml metacity-theme-2.xml
-	ln -s metacity-theme.xml metacity-theme-3.xml
-
 	cp -ur \
 		*.png \
 		*.svg \
 		${themedir}/metacity-1
+
+	cd ${themedir}/metacity-1
+	ln -s metacity-theme.xml metacity-theme-1.xml
+	ln -s metacity-theme.xml metacity-theme-2.xml
+	ln -s metacity-theme.xml metacity-theme-3.xml
 
 	# Install Unity Theme
 	install -d ${themedir}/unity
