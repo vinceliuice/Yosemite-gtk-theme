@@ -56,9 +56,9 @@ When running the installer script in Fedora 24 or later, you need to install 'gl
 ### GNOME Shell
 
 #### Yosemite
-![01](https://github.com/vinceliuice/Yosemite-gtk-theme/blob/imgs/screenshot1.png?raw=true) 
-![02](https://github.com/vinceliuice/Yosemite-gtk-theme/blob/imgs/screenshot2.png?raw=true) 
-![03](https://github.com/vinceliuice/Yosemite-gtk-theme/blob/imgs/screenshot3.png?raw=true) 
-![04](https://github.com/vinceliuice/Yosemite-gtk-theme/blob/imgs/img1.jpeg?raw=true) 
-![05](https://github.com/vinceliuice/Yosemite-gtk-theme/blob/imgs/img2.jpeg?raw=true)
+![01](https://github.com/vinceliuice/Yosemite-gtk-theme/blob/imgs/screenshot1.jpeg?raw=true)
+![02](https://github.com/vinceliuice/Yosemite-gtk-theme/blob/imgs/screenshot2.jpeg?raw=true)
+![03](https://github.com/vinceliuice/Yosemite-gtk-theme/blob/imgs/screenshot3.jpeg?raw=true)
+![04](https://github.com/vinceliuice/Yosemite-gtk-theme/blob/imgs/screenshot4.jpeg?raw=true)
+![05](https://github.com/vinceliuice/Yosemite-gtk-theme/blob/imgs/screenshot5.jpeg?raw=true)
 
