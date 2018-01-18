@@ -977,23 +977,19 @@ headerbar,
     .maximized headerbar:backdrop, .maximized
     .titlebar:backdrop:not(headerbar) {
       background-color: #f6f6f6; }
-  headerbar.default-decoration, .csd headerbar.default-decoration, headerbar.default-decoration:backdrop, .csd headerbar.default-decoration:backdrop,
+  headerbar.default-decoration, .csd headerbar.default-decoration,
   .default-decoration.titlebar:not(headerbar), .csd
-  .default-decoration.titlebar:not(headerbar),
-  .default-decoration.titlebar:backdrop:not(headerbar), .csd
-  .default-decoration.titlebar:backdrop:not(headerbar) {
+  .default-decoration.titlebar:not(headerbar) {
     min-height: 28px;
     padding: 0 4px;
-    background-color: rgba(229, 229, 229, 0.95);
+    background-color: #e5e5e5;
     background-image: linear-gradient(0deg, #E2E2E2 0%, #f5f5f5 100%);
     border: none;
     box-shadow: none; }
-    .maximized headerbar.default-decoration, .maximized .csd headerbar.default-decoration, .maximized headerbar.default-decoration:backdrop, .maximized .csd headerbar.default-decoration:backdrop, .maximized
+    .maximized headerbar.default-decoration, .maximized .csd headerbar.default-decoration, .maximized
     .default-decoration.titlebar:not(headerbar), .maximized .csd
-    .default-decoration.titlebar:not(headerbar), .maximized
-    .default-decoration.titlebar:backdrop:not(headerbar), .maximized .csd
-    .default-decoration.titlebar:backdrop:not(headerbar) {
-      background-color: rgba(229, 229, 229, 0.95); }
+    .default-decoration.titlebar:not(headerbar) {
+      background-color: #e5e5e5; }
 
 .titlebar {
   border-radius: 6px 6px 0 0; }
@@ -1622,13 +1618,12 @@ menubar,
   -GtkWidget-window-dragging: true;
   padding: 0px;
   background-color: #e5e5e5;
-  background-image: linear-gradient(180deg, #d2d2d2 0%, #d6d6d6 75%, #dedede 100%);
+  background-image: linear-gradient(180deg, #E2E2E2 0%, #d2d2d2 100%);
   color: rgba(40, 32, 32, 0.8);
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.12); }
   menubar:backdrop,
   .menubar:backdrop {
-    color: rgba(40, 32, 32, 0.5);
-    background-image: none; }
+    color: rgba(40, 32, 32, 0.6); }
   menubar > menuitem,
   .menubar > menuitem {
     transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
@@ -1902,18 +1897,11 @@ notebook {
 
 scrollbar {
   background-color: transparent;
-  transition: 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  transition: 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: none; }
   * {
     -GtkScrollbar-has-backward-stepper: false;
     -GtkScrollbar-has-forward-stepper: false; }
-  scrollbar.top {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
-  scrollbar.bottom {
-    border-top: 1px solid rgba(0, 0, 0, 0.12); }
-  scrollbar.left {
-    border-right: 1px solid rgba(0, 0, 0, 0.12); }
-  scrollbar.right {
-    border-left: 1px solid rgba(0, 0, 0, 0.12); }
   scrollbar button {
     border: none; }
   scrollbar.vertical button.down {
@@ -1928,7 +1916,7 @@ scrollbar {
     min-width: 4px;
     min-height: 6px;
     margin: -1px;
-    border: 3px solid transparent;
+    border: 4px solid transparent;
     border-radius: 8px;
     background-clip: padding-box;
     background-color: #a1a1a1; }
@@ -1956,10 +1944,10 @@ scrollbar {
       background-color: #636363;
       border: 1px solid rgba(0, 0, 0, 0.12); }
     scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal slider {
-      margin: 0 2px;
+      margin: 0 3px;
       min-width: 40px; }
     scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical slider {
-      margin: 2px 0;
+      margin: 3px 0;
       min-height: 40px; }
   scrollbar.overlay-indicator.dragging, scrollbar.overlay-indicator.hovering {
     opacity: 0.99; }
@@ -2775,7 +2763,7 @@ scrolledwindow undershoot.right {
   border: none; }
 scrolledwindow junction {
   border-color: transparent;
-  border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.12) 1px, transparent 1px) 0 0 0 1/0 1px stretch;
+  border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.12) 1px, transparent 1px) 0 0 0 0/0 0 stretch;
   background-color: #fcfcfc; }
   scrolledwindow junction:dir(rtl) {
     border-image-slice: 0 1 0 0; }

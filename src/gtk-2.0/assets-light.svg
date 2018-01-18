@@ -21,6 +21,18 @@
      id="defs9894">
     <linearGradient
        inkscape:collect="always"
+       id="linearGradient1752">
+      <stop
+         style="stop-color:#d2d2d2;stop-opacity:1"
+         offset="0"
+         id="stop1748" />
+      <stop
+         style="stop-color:#e2e2e2;stop-opacity:1"
+         offset="1"
+         id="stop1750" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
        id="linearGradient1761">
       <stop
          style="stop-color:#4c97fe;stop-opacity:1"
@@ -969,6 +981,15 @@
        x2="263"
        y2="-137.63782"
        gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1752"
+       id="linearGradient1754"
+       x1="468"
+       y1="-140.63782"
+       x2="468"
+       y2="-172.63782"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -977,12 +998,12 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710675"
-     inkscape:cx="271.85942"
-     inkscape:cy="221.64598"
+     inkscape:zoom="5.656854"
+     inkscape:cx="408.39262"
+     inkscape:cy="287.70155"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
-     showgrid="true"
+     showgrid="false"
      showborder="false"
      inkscape:window-width="1366"
      inkscape:window-height="690"
@@ -6126,14 +6147,14 @@
        inkscape:label="#g1784"
        transform="translate(-36)">
       <rect
-         style="opacity:1;fill:#e7e7e7;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         style="opacity:1;fill:url(#linearGradient1754);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="rect1769"
          width="24"
          height="32"
          x="456"
          y="-172.63782" />
       <rect
-         style="opacity:1;fill:#dedede;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         style="opacity:0.12;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="rect1771"
          width="24"
          height="1"

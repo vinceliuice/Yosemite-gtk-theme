@@ -129,11 +129,12 @@ StEntry {
   font-size: 11.25pt;
   font-weight: 400;
   background-color: #fafafa;
-  border-radius: 50px;
+  border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: none; }
   StEntry:focus {
-    border: 1px solid #0e6bff; }
+    border: 1px solid #5b9aff;
+    box-shadow: 0 0 0 2px #5b9aff; }
   StEntry:insensitive {
     color: rgba(0, 0, 0, 0.38);
     border: 1px solid rgba(0, 0, 0, 0.5); }
@@ -736,7 +737,7 @@ StScrollBar {
 
 /* TOP BAR */
 #panel {
-  background-color: rgba(245, 245, 245, 0.65);
+  background-color: rgba(245, 245, 245, 0.45);
   /* transition from solid to transparent */
   transition-duration: 250ms;
   font-weight: bold;
@@ -747,7 +748,7 @@ StScrollBar {
     spacing: 0; }
   #panel .panel-corner {
     -panel-corner-radius: 0;
-    -panel-corner-background-color: rgba(245, 245, 245, 0.65);
+    -panel-corner-background-color: rgba(245, 245, 245, 0.45);
     -panel-corner-border-width: 2px;
     -panel-corner-border-color: transparent; }
     #panel .panel-corner:active, #panel .panel-corner:overview, #panel .panel-corner:focus {
@@ -800,14 +801,14 @@ StScrollBar {
   #panel .screencast-indicator {
     color: #FF6D00; }
   #panel.solid {
-    background-color: rgba(245, 245, 245, 0.65);
+    background-color: rgba(245, 245, 245, 0.45);
     /* transition from transparent to solid */
     transition-duration: 250ms;
     background-gradient-direction: none; }
     #panel.solid:overview {
       background-color: transparent; }
     #panel.solid .panel-corner {
-      -panel-corner-background-color: rgba(245, 245, 245, 0.65); }
+      -panel-corner-background-color: rgba(245, 245, 245, 0.45); }
     #panel.solid .panel-button {
       color: #484848;
       text-shadow: none; }
@@ -1840,11 +1841,12 @@ StScrollBar {
     selection-background-color: rgba(255, 255, 255, 0.3);
     selected-color: rgba(255, 255, 255, 0.85);
     background-color: #fafafa;
-    border-radius: 50px;
+    border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.12);
     box-shadow: none; }
     .login-dialog StEntry:focus {
-      border: 1px solid #0e6bff; }
+      border: 1px solid #5b9aff;
+      box-shadow: 0 0 0 2px #5b9aff; }
     .login-dialog StEntry:insensitive {
       color: rgba(0, 0, 0, 0.38);
       border: 1px solid rgba(0, 0, 0, 0.5);
@@ -2369,11 +2371,12 @@ StScrollBar {
   selection-background-color: #0e6bff;
   selected-color: rgba(255, 255, 255, 0.85);
   background-color: #fafafa;
-  border-radius: 50px;
+  border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: none; }
   .popup-menu .search-entry:focus {
-    border: 1px solid #0e6bff;
+    border: 1px solid #5b9aff;
+    box-shadow: 0 0 0 2px #5b9aff;
     color: rgba(0, 0, 0, 0.87); }
   .popup-menu .search-entry .search-entry-icon {
     color: rgba(0, 0, 0, 0.38); }

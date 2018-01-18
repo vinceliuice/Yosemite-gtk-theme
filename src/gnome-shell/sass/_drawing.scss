@@ -97,13 +97,14 @@
 
   @if $t == normal {
     background-color: if($variant == 'light', darken($base_color, 2%), darken($base_color, 1%));
-    border-radius: 50px;
+    border-radius: $material_radius;
     border: 1px solid $border_color;
     box-shadow: none;
   }
 
   @if $t == focus {
-    border: 1px solid $primary_color;
+    border: 1px solid lighten($primary_color, 15%);
+    box-shadow: 0 0 0 2px lighten($primary_color, 15%);
   }
 
   @if $t == hover {

@@ -129,11 +129,12 @@ StEntry {
   font-size: 11.25pt;
   font-weight: 400;
   background-color: #212121;
-  border-radius: 50px;
+  border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.26);
   box-shadow: none; }
   StEntry:focus {
-    border: 1px solid #0062FF; }
+    border: 1px solid #4d91ff;
+    box-shadow: 0 0 0 2px #4d91ff; }
   StEntry:insensitive {
     color: rgba(255, 255, 255, 0.5);
     border: 1px solid rgba(0, 0, 0, 0.5); }
@@ -1840,11 +1841,12 @@ StScrollBar {
     selection-background-color: rgba(255, 255, 255, 0.3);
     selected-color: rgba(255, 255, 255, 0.85);
     background-color: #212121;
-    border-radius: 50px;
+    border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.26);
     box-shadow: none; }
     .login-dialog StEntry:focus {
-      border: 1px solid #0062FF; }
+      border: 1px solid #4d91ff;
+      box-shadow: 0 0 0 2px #4d91ff; }
     .login-dialog StEntry:insensitive {
       color: rgba(255, 255, 255, 0.5);
       border: 1px solid rgba(0, 0, 0, 0.5);
@@ -2369,11 +2371,12 @@ StScrollBar {
   selection-background-color: #0062FF;
   selected-color: rgba(255, 255, 255, 0.85);
   background-color: #212121;
-  border-radius: 50px;
+  border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.26);
   box-shadow: none; }
   .popup-menu .search-entry:focus {
-    border: 1px solid #0062FF;
+    border: 1px solid #4d91ff;
+    box-shadow: 0 0 0 2px #4d91ff;
     color: rgba(255, 255, 255, 0.9); }
   .popup-menu .search-entry .search-entry-icon {
     color: rgba(255, 255, 255, 0.5); }
