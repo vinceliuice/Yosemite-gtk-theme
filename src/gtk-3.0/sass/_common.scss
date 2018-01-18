@@ -1701,7 +1701,7 @@ menu,
   $_menu_bd: if($variant=='light', rgba(black, 0.05), rgba(white, 0.05));
   margin: 0;
   padding: 6px 0;
-  border-radius: 0;
+//  border-radius: $bt_radius + 3px;
   background-color: opacify($_menu_bg, 1);
   border: none;
 
@@ -3362,18 +3362,20 @@ decoration {
   }
   .popup & {
 //   box-shadow: none;
-    border-radius: 0;
+    border-radius: $bt_radius;
+    background-color: transparent;
   }
   // server-side decorations as used by mutter
   .ssd & {
-    border-radius: if($darker=='false' and $variant=='light', 4px 4px 0 0, 3px 3px 0 0);
+    border-radius: $bt_radius $bt_radius 0 0;
 //    box-shadow: 0 0 0 0 if($darker=='true' or $variant == 'dark', transparentize(black, 0.35), $_wm_border);
 
     &.maximized { border-radius: 0; }
   }
   .csd.popup & {
     border-radius: $bt_radius;
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.12), 0 5px 5px rgba(0, 0, 0, 0.06);
+    background-color: transparent;
   }
   tooltip.csd & {
     border-radius: $bt_radius;
