@@ -21,7 +21,7 @@ filechooser,
   &.csd.background, placessidebar list { background-color: transparent; }
 
   placessidebar.sidebar {
-//    border-right: if($variant=='light', 1px solid $borders_color, none);
+    border-right: if($variant=='light', 1px solid $borders_color, none);
     background-color: $dark_sidebar_bg;
 
     row.sidebar-row {

@@ -633,10 +633,10 @@ toolbar.inline-toolbar toolbutton {
     > button + button { border-#{$_border}-style: none; }
 
     > #{$_uncolored_button}:hover:not(:only-child),
-    > #{$_uncolored_button}:hover + #{$_uncolored_button} { box-shadow: inset if($vert=='false', 1px 0, 0 1px) $b_border; }
+    > #{$_uncolored_button}:hover + #{$_uncolored_button} { box-shadow: none; }
 
     > #{$_uncolored_button}:disabled:not(:only-child),
-    > #{$_uncolored_button}:disabled + #{$_uncolored_button}:not(:hover) { box-shadow: inset if($vert=='false', 1px 0, 0 1px) transparentize($b_border, 0.5); }
+    > #{$_uncolored_button}:disabled + #{$_uncolored_button}:not(:hover) { box-shadow: none; }
 
     > button:active + #{$_uncolored_button}:hover,
     > button:checked + #{$_uncolored_button}:hover,
@@ -830,7 +830,7 @@ spinbutton {
     > button + button { border-left-style: none; }
 
     > button:hover:not(:active),
-    > button:hover + button { box-shadow: inset 1px 0 $button_border; }
+    > button:hover + button { box-shadow: none; }
 
     > button:disabled + button:not(:disabled):not(:active):not(:checked):not(:hover),
     > button:not(:disabled):not(:active):not(:checked):not(:hover) + button:disabled { box-shadow: inset 1px 0 transparentize($button_border, 0.5); }
@@ -845,7 +845,7 @@ spinbutton {
 
     .osd & {
       > button:hover:not(:active),
-      > button:hover + button { box-shadow: inset 1px 0 $osd_button_border; }
+      > button:hover + button { box-shadow: none; }
 
       > button:first-child:hover:not(:active),
       > button.up:dir(rtl):hover:not(:active),
@@ -2289,7 +2289,7 @@ scale {
 
   // Trough
   trough {
-    $_scale_trough_bg: if($variant == 'light', $button_border, darken($bg_color, 5%));
+    $_scale_trough_bg: darken($bg_color, 5%);
 
     outline-offset: 2px;
     -gtk-outline-radius: 4.5px;
@@ -2370,7 +2370,7 @@ scale {
     }
 
     &:disabled {
-      background-color: darken($selected_fg_color, 10%);
+      background-color: darken($selected_fg_color, 5%);
       border-color: darken($_slider_border, 5%);
     }
 
@@ -2399,17 +2399,19 @@ scale {
     // OSD sliders
     .osd & {
       background-clip: border-box;
-      background-color: $selected_bg_color;
-      border-color: $selected_bg_color;
+      background-color: $selected_fg_color;
+      border-color: $_slider_border;
 
       &:hover {
-        background-color: lighten($selected_bg_color, 10%);
-        border-color: lighten($selected_bg_color, 10%)
-      }
+        background-color: lighten($selected_fg_color, 3%);
+        border-color: $_slider_border;
+        box-shadow: $shadow_0;
+        }
 
       &:active {
-        background-color: darken($selected_bg_color, 10%);
-        border-color: darken($selected_bg_color, 10%);
+        background-color: darken($selected_fg_color, 3%);
+        border-color: $_slider_border;
+        box-shadow: $shadow_3;
       }
 
       &:disabled {  }
@@ -2910,10 +2912,6 @@ filechooserbutton:drop(active) {
   list { background-color: transparent; }
 
   paned & { &.left, &.right, &.left:dir(rtl), &:dir(rtl), &:dir(ltr), & { border-style: none; }}
-  paned & {
-      &.left, &.left:dir(rtl), &:dir(ltr) { border-right-style: if($variant=='light', solid, none); }
-      &.right &:dir(rtl) { border-left-style: if($variant=='light', solid, none); }
-    }
 }
 
 stacksidebar {
