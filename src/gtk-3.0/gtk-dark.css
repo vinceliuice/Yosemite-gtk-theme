@@ -3359,6 +3359,18 @@ textview text selection, flowbox flowboxchild:selected, entry selection:focus, e
     textview text selection:disabled, flowbox flowboxchild:disabled:selected, label:disabled selection, entry selection:disabled, treeview.view:disabled:selected:focus, row:disabled:selected, calendar:disabled:selected, .nemo-window .nemo-window-pane widget.entry:disabled:selected {
       color: #80b1ff; }
 
+/*********
+ * Emoji *
+ *********/
+.emoji {
+  min-width: 3em;
+  min-height: 3em;
+  padding: 0; }
+  .emoji widget {
+    transition: all 0.2s cubic-bezier(0, 0, 0.2, 1); }
+    .emoji widget:hover {
+      font-size: larger; }
+
 /*
 .gedit-bottom-panel-paned notebook,
 terminal-window notebook {

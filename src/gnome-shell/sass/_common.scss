@@ -145,9 +145,11 @@ StScrollBar {
 
 /* Slider */
 
+$slider_color: if($variant == 'light', #686868, white);
+
 .slider {
   height: 20px;
-  color: $accent_color;
+  color: $slider_color;
   -slider-height: 2px;
   -slider-background-color: $track_color; //background of the trough
   -slider-border-color: transparent; //trough border color
@@ -810,12 +812,13 @@ StScrollBar {
   transition-duration: 250ms;
   font-weight: bold;
   height: $menuitem_size;
+  box-shadow: $shadow_6;
 
   &:overview,
   &.unlock-screen,
   &.login-screen,
   &.lock-screen {
-    background-color: transparent;
+    background-color: if($panel == 'light', rgba($panel_bg_color, 0.35), transparent);
   }
 
   #panelLeft, #panelCenter { // spacing between activities<>app menu and such
@@ -861,8 +864,8 @@ StScrollBar {
     }
 
     &:hover {
-      color: $inverse_fg_color;
-      background-color: $track_color;
+      color: $panel_fg_color;
+      background-color: $inverse_divider_color;
       text-shadow: none;
 
       .system-status-icon,
@@ -920,7 +923,7 @@ StScrollBar {
       color: $panel_fg_color;
       text-shadow: none;
 
-      &:hover, &:active, &:overview, &:focus, &:checked {
+      &:active, &:overview, &:focus, &:checked {
         color: $inverse_fg_color;
       }
     }
@@ -1525,9 +1528,10 @@ StScrollBar {
     padding: 0 16px;
     font-weight: bold;
     color: $inverse_secondary_fg_color;
+    background-color: rgba($inverse_fg_color, 0.15);
     &:hover {
       color: $inverse_fg_color;
-      background-color: $inverse_divider_color !important;
+      background-color: rgba($inverse_fg_color, 0.22);
     }
     &:active {
       color: $inverse_fg_color;
@@ -1535,17 +1539,17 @@ StScrollBar {
     }
     &:checked {
       color: $inverse_fg_color;
-      background-color: rgba($bg_color, 0.01) !important;
-      box-shadow: inset 0 2px 0 $inverse_fg_color;
+      background-color: rgba($inverse_fg_color, 0.35);
+      box-shadow: none;
     }
     &:first-child {
       border-right-width: 0;
-      border-radius: $bt_radius;
-      &:checked { border-radius: 0; }
+      border-radius: $bt_radius 0 0 $bt_radius;
+//      &:checked { border-radius: 0; }
     }
     &:last-child {
-      border-radius: $bt_radius;
-      &:checked { border-radius: 0; }
+      border-radius: 0 $bt_radius $bt_radius 0;
+//      &:checked { border-radius: 0; }
     }
   }
 
@@ -1562,9 +1566,10 @@ StScrollBar {
       transition-duration: $longer_duration;
     }
   }
+
+  .show-apps,
   .app-well-app,
   .app-well-app.app-folder,
-  .show-apps,
   .grid-search-result {
     & .overview-icon {
       @extend %icon_tile;
@@ -1580,10 +1585,17 @@ StScrollBar {
     &:active .overview-icon,
     &:checked .overview-icon {
       background-color: $inverse_track_color;
-      box-shadow: $shadow_0;
+      box-shadow: none;
       transition-duration: $longer_duration;
     }
 
+  }
+
+  .show-apps {
+    & .overview-icon {
+    background-image: url("assets/startup.png") !important;
+    background-size: contain;
+   }
   }
 
   .app-well-app-running-dot { //running apps indicator
@@ -1606,14 +1618,14 @@ StScrollBar {
   }
 
   .show-apps .show-apps-icon {
-    color: $inverse_secondary_fg_color;
+    color: transparent;
   }
 
   .show-apps:hover .show-apps-icon,
   .show-apps:active .show-apps-icon,
   .show-apps:checked .show-apps-icon,
   .show-apps:focus .show-apps-icon {
-    color: $inverse_fg_color;
+    color: transparent;
     transition-duration: $longer_duration;
   }
 

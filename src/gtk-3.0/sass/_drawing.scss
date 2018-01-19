@@ -11,6 +11,7 @@ $text_shadow: 0 -1px rgba(#ffffff, 0.04), -1px  0px rgba(#202020, 0.05), 1px  0p
 
 // Transitions
 $transition_1: all 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
+$transition_2: all 0.2s cubic-bezier(0, 0, 0.2, 1);
 $shadow_transition: box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
 
 // Animations

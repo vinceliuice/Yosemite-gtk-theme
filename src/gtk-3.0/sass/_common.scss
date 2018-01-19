@@ -3459,3 +3459,24 @@ headerbar,
     &:disabled { color: mix($selected_fg_color, $selected_bg_color, 50%); }
   }
 }
+
+/*********
+ * Emoji *
+ *********/
+popover.emoji-picker { }
+
+// mimic tab style
+button.emoji-section { }
+
+.emoji {
+  min-width: 3em;
+  min-height: 3em;
+  padding: 0;
+  // font-size: large;
+
+  widget {
+    transition: $transition_2;
+
+    &:hover { font-size: larger; }
+  }
+}

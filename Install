@@ -59,6 +59,7 @@ srcdir=${repodir}/src
 			dash-placeholder.svg \
 			noise-texture.svg \
 			noise.png \
+			startup.png \
 			process-working.svg \
 			window-close.svg \
 			window-close-active.svg \
@@ -190,6 +191,4 @@ srcdir=${repodir}/src
 		${themedir}/xfwm4/themerc
 
   done
-
-
 
