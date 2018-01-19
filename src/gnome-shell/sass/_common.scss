@@ -112,11 +112,11 @@ StScrollBar {
 
   StScrollView & {
     min-width: 16px;
-    min-height: 16px;
+    min-height: 6px;
   }
 
   StBin#trough {
-    margin: 3px;
+    margin: 6px;
     border-radius: 100px;
     background-color: $divider_color;
   }
@@ -125,7 +125,7 @@ StScrollBar {
     border-radius: 100px;
     background-color: $hint_fg_color;
     //border: 4px solid transparent; //would be nice to margin or at least to transparent
-    margin: 3px;
+    margin: 6px;
     &:hover { background-color: $secondary_fg_color; }
     &:active { background-color: $fg_color; }
   }
@@ -145,7 +145,7 @@ StScrollBar {
 
 /* Slider */
 
-$slider_color: if($variant == 'light', #686868, white);
+$slider_color: if($variant == 'light', white, white);
 
 .slider {
   height: 20px;
@@ -555,23 +555,23 @@ $slider_color: if($variant == 'light', #686868, white);
 /* Popovers/Menus */
 
 .popup-menu {
-  min-width: 200px;
+  min-width: 100px;
   background-color: transparent;
 
   .popup-menu-arrow { } //defined globally in the TOP BAR
   .popup-sub-menu {
-    background-color: rgba($alt_base_color, 0.65);
+    background-color: rgba($alt_base_color, 0.5);
     box-shadow: $shadow_0;
   }
 
   .popup-menu-content { padding: 8px 0; }
   .popup-menu-item {
     // min-height: $menuitem_size - 4px * 2;
-    spacing: 8px;
+    spacing: 0;
     transition-duration: $shorter_duration;
 
-    &:ltr { padding: 0.4em 24px 0.4em 0; }
-    &:rtl { padding: 0.4em 0 0.4em 24px; }
+    &:ltr { padding: 0.3em 24px 0.3em 0; }
+    &:rtl { padding: 0.3em 0 0.3em 24px; }
     &:checked {
       background-color: $primary_color;
       color: $inverse_fg_color;
@@ -608,7 +608,7 @@ $slider_color: if($variant == 'light', #686868, white);
   }
   //.popup-status-menu-item { font-weight: normal;  color: pink; } //dunno what that is
   &.panel-menu {
-    -boxpointer-gap: 4px;
+    -boxpointer-gap: 0;
     margin-bottom: 1.75em;
   }
 }
@@ -618,6 +618,7 @@ $slider_color: if($variant == 'light', #686868, white);
     width: 16px;
     height: 16px;
   }
+
   .popup-menu-boxpointer,
   .candidate-popup-boxpointer {
     -arrow-border-radius: 0;
@@ -627,15 +628,15 @@ $slider_color: if($variant == 'light', #686868, white);
     -arrow-base: 0;
     -arrow-rise: 0;
     -arrow-box-shadow: none; //dreaming. bug #689995
-    margin: 5px 8px 8px;
-    background-color: rgba($base_color, 0.92);
-    border-radius: $bt_radius;
+    margin: 4px;
+    background-color: rgba($base_color, 0.9);
+    border-radius: $bt_radius - 3px;
     box-shadow: $shadow_2;
   }
 
   .popup-separator-menu-item {
     height: 1px; //not really the whole box
-    margin: 0 48px;
+    margin: 0 38px;
     background-color: transparent;
     border-color: rgba($border_color, 0.1);
     border-bottom-width: 1px;
@@ -807,7 +808,7 @@ $slider_color: if($variant == 'light', #686868, white);
 /* TOP BAR */
 
 #panel {
-  background-color: $panel_bg_color;
+  background-color: $panel_bg_color;;
   /* transition from solid to transparent */
   transition-duration: 250ms;
   font-weight: bold;
@@ -840,20 +841,24 @@ $slider_color: if($variant == 'light', #686868, white);
       -panel-corner-background-color: transparent;
       -panel-corner-border-color: transparent;
     }
+
+    StLabel { padding: 0 4px; }
   }
 
   .panel-button {
-    -natural-hpadding: 12px;
+    -natural-hpadding: 10px;
     -minimum-hpadding: 6px;
     font-weight: bold;
     color: $panel_fg_color;
     text-shadow: none;
     transition-duration: $longer_duration;
 
+    StLabel { padding: 0 6px; }
+
     .app-menu-icon {
       -st-icon-style: symbolic;
-      margin-left: 4px;
-      margin-right: 4px;
+      margin-left: 6px;
+      margin-right: 0;
       //dimensions of the icon are hardcoded
     }
 
@@ -933,6 +938,28 @@ $slider_color: if($variant == 'light', #686868, white);
     .popup-menu-arrow {
       icon-shadow: none;
     }
+  }
+}
+
+// Activities button
+#panel #panelActivities.panel-button {
+
+  > * {
+    background-image: url("assets/activities.svg");
+    background-position: center top;
+    width: 24px;
+    height: 24px;
+    background-color: transparent !important;
+    background-gradient-direction: none !important;
+    border: none;
+    color: transparent;
+  }
+
+  &:active, &:overview, &:focus, &:checked {
+    background-color: transparent;
+    border: none;
+
+//    > * { background-image: url("assets/activities-active.svg"); }
   }
 }
 
@@ -1272,14 +1299,14 @@ $slider_color: if($variant == 'light', #686868, white);
   .system-menu-action {
     color: $secondary_fg_color;
     border-radius: 100px; /* wish we could do 50% */
-    padding: ($large_size - 16px) / 2;
+    padding: ($large_size - 20px) / 2;
     border: none;
 
     &:hover, &:focus {
       background-color: $divider_color;
       color: $fg_color;
       border: none;
-      padding: ($large_size - 16px) / 2;
+      padding: ($large_size - 20px) / 2;
     }
     &:active { background-color: $track_color; color: $fg_color; }
 
@@ -1683,16 +1710,17 @@ $slider_color: if($variant == 'light', #686868, white);
     @extend %overview-panel;
     visible-width: 32px; //amount visible before hover
     spacing: 12px;
-    padding: 12px;
-    border-radius: 2px 0 0 2px;
+    padding: 16px;
+    border-radius: $material_radius;
+    margin: 6px;
     //border-width: 0; //fixme: can't have non unoform borders :(
-    &:rtl { border-radius: 0 2px 2px 0;}
+//    &:rtl { border-radius: $material_radius; }
   }
   .workspace-thumbnail-indicator {
-    border: 0 solid $inverse_fg_color;
-    border-left-width: 2px;
+    border: 0 solid $primary_color;
+    border-width: 2px;
     padding: 6px;
-    border-radius: 0;
+    border-radius: 2px;
   }
 
   //Some hacks I don't even

@@ -58,7 +58,6 @@ srcdir=${repodir}/src
 			dash \
 			dash-placeholder.svg \
 			noise-texture.svg \
-			noise.png \
 			startup.png \
 			process-working.svg \
 			window-close.svg \
@@ -67,6 +66,10 @@ srcdir=${repodir}/src
 			more-results.svg \
 			checkbox.svg \
 			${themedir}/gnome-shell/assets
+
+		cp -ur \
+			activities${color}.svg \
+			${themedir}/gnome-shell/assets/activities.svg
 
 		cp -ur \
 			no-events${color}.svg \
