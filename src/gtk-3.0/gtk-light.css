@@ -793,7 +793,7 @@ spinbutton:not(.vertical) > button.up:dir(rtl):hover:not(:active),
 spinbutton:not(.vertical) > entry + button:not(:active):hover {
   box-shadow: none; }
 spinbutton:not(.vertical) > entry:focus + button {
-  border-left-color: #0e6bff; }
+  border-left-color: #74aaff; }
 spinbutton:not(.vertical) > entry:drop(active) + button {
   border-left-color: #F08437; }
 .osd spinbutton:not(.vertical) > button:hover:not(:active),
@@ -804,7 +804,7 @@ spinbutton:not(.vertical) > entry:drop(active) + button {
 .osd spinbutton:not(.vertical) > entry + button:not(:active):hover {
   box-shadow: none; }
 .osd spinbutton:not(.vertical) > entry:focus + button {
-  border-left-color: #0e6bff; }
+  border-left-color: #74aaff; }
 spinbutton.vertical entry {
   border-radius: 0; }
 spinbutton.vertical button, spinbutton.vertical entry {
@@ -815,7 +815,7 @@ spinbutton.vertical button, spinbutton.vertical entry {
 spinbutton.vertical button.up {
   border-radius: 5px 5px 0 0; }
 spinbutton.vertical > entry:focus + button {
-  border-top-color: #0e6bff; }
+  border-top-color: #74aaff; }
 spinbutton.vertical > entry:drop(active) + button {
   border-top-color: #F08437; }
 
@@ -877,7 +877,7 @@ toolbar, .inline-toolbar {
   box-shadow: none;
   border-width: 0 0 1px 0;
   border-style: solid;
-  border-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.12)) 1 0 1 0; }
+  border-image: linear-gradient(to bottom, #E1E1E1, #E1E1E1) 1 0 1 0; }
 
 .inline-toolbar {
   background-color: #ededed;
@@ -1435,7 +1435,7 @@ headerbar spinbutton:not(.vertical) > entry + button:not(:active):hover,
 .nemo-window .primary-toolbar spinbutton:not(.vertical) > entry + button:not(:active):hover {
   box-shadow: none; }
 headerbar spinbutton:not(.vertical) > entry:focus + button, .nemo-window .primary-toolbar spinbutton:not(.vertical) > entry:focus + button {
-  border-left-color: rgba(40, 32, 32, 0.1); }
+  border-left-color: #74aaff; }
 headerbar combobox:disabled, .nemo-window .primary-toolbar combobox:disabled {
   color: rgba(40, 32, 32, 0.2); }
 headerbar combobox > .linked > button.combo, .nemo-window .primary-toolbar combobox > .linked > button.combo {
@@ -4070,16 +4070,19 @@ panel-toplevel.background button:not(#tasklist-button), .xfce4-panel.panel butto
  * Libre-Office *
  ****************/
 window.background > grid.horizontal > grid.horizontal {
-  background-color: rgba(229, 229, 229, 0.95); }
+  background-image: linear-gradient(180deg, #E2E2E2 0%, #d2d2d2 100%);
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.12); }
   window.background > grid.horizontal > grid.horizontal > button.flat.small-button, window.background > grid.horizontal > grid.horizontal > button.small-button.sidebar-button {
     color: rgba(40, 32, 32, 0.8);
-    border: none; }
+    border: none;
+    border-radius: 50px;
+    background-image: none; }
     window.background > grid.horizontal > grid.horizontal > button.flat.small-button:hover, window.background > grid.horizontal > grid.horizontal > button.small-button.sidebar-button:hover {
       background-color: rgba(255, 255, 255, 0.95);
       color: rgba(54, 44, 44, 0.8); }
     window.background > grid.horizontal > grid.horizontal > button.flat.small-button:active, window.background > grid.horizontal > grid.horizontal > button.small-button.sidebar-button:active, window.background > grid.horizontal > grid.horizontal > button.flat.small-button:checked, window.background > grid.horizontal > grid.horizontal > button.small-button.sidebar-button:checked {
-      background-color: #0e6bff;
-      color: rgba(82, 67, 67, 0.8); }
+      background-color: rgba(255, 0, 0, 0.65);
+      color: white; }
     window.background > grid.horizontal > grid.horizontal > button.flat.small-button:disabled, window.background > grid.horizontal > grid.horizontal > button.small-button.sidebar-button:disabled {
       color: alpha(rgba(40, 32, 32, 0.8),0.6); }
 

@@ -839,7 +839,7 @@ spinbutton {
     > button.up:dir(rtl):hover:not(:active),
     > entry + button:not(:active):hover { box-shadow: none; }
 
-    > entry:focus + button { border-left-color: $selected_bg_color; }
+    > entry:focus + button { border-left-color: $entry_highlight; }
 
     > entry:drop(active) + button { border-left-color: $drop_target_color; }
 
@@ -851,7 +851,7 @@ spinbutton {
       > button.up:dir(rtl):hover:not(:active),
       > entry + button:not(:active):hover { box-shadow: none; }
 
-      > entry:focus + button { border-left-color: $selected_bg_color; }
+      > entry:focus + button { border-left-color: $entry_highlight; }
     }
   }
   &.vertical {
@@ -869,7 +869,7 @@ spinbutton {
 
     button.up { border-radius: $bt_radius $bt_radius 0 0; }
 
-    > entry:focus + button { border-top-color: $selected_bg_color; }
+    > entry:focus + button { border-top-color: $entry_highlight; }
 
     > entry:drop(active) + button { border-top-color: $drop_target_color; }
   }
@@ -960,7 +960,7 @@ toolbar {
   box-shadow: none;
   border-width: 0 0 1px 0;
   border-style: solid;
-  border-image: linear-gradient(to bottom, opacify($button_border, 0.9), $button_border) 1 0 1 0; //temporary hack for rhythmbox 3.1
+  border-image: linear-gradient(to bottom, $bar_border, $bar_border) 1 0 1 0; //temporary hack for rhythmbox 3.1
 
   //&:backdrop { background-color: opacify($header_bg_backdrop, 1); }
 
@@ -1394,7 +1394,7 @@ headerbar {
     > button:first-child:hover:not(:active),
     > entry + button:not(:active):hover { box-shadow: none; }
 
-    > entry:focus + button { border-left-color: if($variant=='light' and $darker=='false', $header_entry_border, $header_entry_border); }
+    > entry:focus + button { border-left-color: if($variant=='light' and $darker=='false', $entry_highlight, $entry_highlight); }
   }
 
   // Headerbar ComboBoxes
