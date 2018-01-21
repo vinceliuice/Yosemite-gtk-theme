@@ -162,7 +162,7 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
     color: darken($fg_color, 10%);
     border-color: $borders_color;
     background-color: if($variant=='light', darken($button_bg, 3%), lighten($button_bg, 8%));
-    box-shadow: $shadow_3;
+    box-shadow: none;
   }
 
   @else if $t==active {

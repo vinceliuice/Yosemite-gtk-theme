@@ -602,7 +602,7 @@ button.documents-favorite:active:hover {
 
 .tweak-titlebar-right,
 dialog.csd > headerbar.titlebar {
-  > switch { @extend %switch_pixmap; }
+  > switch { margin: 8px 0; }
 }
 
 //

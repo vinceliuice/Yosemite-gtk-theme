@@ -276,7 +276,7 @@ button {
     color: #c5c5c5;
     border-color: rgba(255, 255, 255, 0.12);
     background-color: #5c5c5c;
-    box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.06), 0px 1px 2px 0px rgba(16, 16, 16, 0.02);
+    box-shadow: none;
     -gtk-icon-effect: highlight; }
   button:active, button:checked {
     color: #ffffff;
@@ -506,7 +506,7 @@ button {
     color: #c5c5c5;
     border-color: rgba(255, 255, 255, 0.12);
     background-color: #5c5c5c;
-    box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.06), 0px 1px 2px 0px rgba(16, 16, 16, 0.02); }
+    box-shadow: none; }
   .inline-toolbar toolbutton > button:active, .inline-toolbar toolbutton > button:checked {
     color: #ffffff;
     background-color: #0062FF;
@@ -571,23 +571,6 @@ button {
   border-left-color: #66a1ff; }
 .linked:not(.vertical):not(.path-bar) > button + button {
   border-left-style: none; }
-.linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover:not(:only-child),
-.linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action) {
-  box-shadow: none; }
-.linked:not(.vertical):not(.path-bar) > button:active + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover,
-.linked:not(.vertical):not(.path-bar) > button:checked + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover,
-.linked:not(.vertical):not(.path-bar) > button.suggested-action + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover,
-.linked:not(.vertical):not(.path-bar) > button.destructive-action + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover,
-.linked:not(.vertical):not(.path-bar) > entry + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover:not(:only-child),
-.linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):first-child:disabled,
-.linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled,
-.linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):first-child:hover,
-.linked:not(.vertical):not(.path-bar) > button:active + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled,
-.linked:not(.vertical):not(.path-bar) > button:checked + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled,
-.linked:not(.vertical):not(.path-bar) > button.suggested-action + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled,
-.linked:not(.vertical):not(.path-bar) > button.destructive-action + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled,
-.linked:not(.vertical):not(.path-bar) > entry + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled:not(:only-child) {
-  box-shadow: none; }
 .linked:not(.vertical).path-bar > button + button {
   border-left-style: none; }
 
@@ -635,23 +618,6 @@ button {
   border-top-color: #66a1ff; }
 .linked.vertical > button + button {
   border-top-style: none; }
-.linked.vertical > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover:not(:only-child),
-.linked.vertical > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action) {
-  box-shadow: none; }
-.linked.vertical > button:active + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover,
-.linked.vertical > button:checked + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover,
-.linked.vertical > button.suggested-action + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover,
-.linked.vertical > button.destructive-action + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover,
-.linked.vertical > entry + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover:not(:only-child),
-.linked.vertical > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):first-child:disabled,
-.linked.vertical > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled,
-.linked.vertical > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):first-child:hover,
-.linked.vertical > button:active + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled,
-.linked.vertical > button:checked + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled,
-.linked.vertical > button.suggested-action + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled,
-.linked.vertical > button.destructive-action + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled,
-.linked.vertical > entry + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled:not(:only-child) {
-  box-shadow: none; }
 
 toolbar.inline-toolbar toolbutton > button.flat, .inline-toolbar toolbutton > button.flat, toolbar.inline-toolbar toolbutton > button.sidebar-button, .inline-toolbar toolbutton > button.sidebar-button, .linked:not(.vertical) > entry, .linked:not(.vertical) > entry:focus, .inline-toolbar button, .inline-toolbar button:backdrop, .linked:not(.vertical) > button, .linked:not(.vertical) > button:hover, .linked:not(.vertical) > button:active, .linked:not(.vertical) > button:checked, spinbutton:not(.vertical) button, spinbutton:not(.vertical) entry, .nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button, .nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:hover, .nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:active, .nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:checked, .nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:disabled, .linked:not(.vertical) > combobox > box > button.combo:dir(ltr), .linked:not(.vertical) > combobox > box > button.combo:dir(rtl) {
   border-radius: 0;
@@ -1735,20 +1701,6 @@ popover.background {
   popover.background > .inline-toolbar {
     border-style: none;
     background-color: transparent; }
-  popover.menu button,
-  popover button.model,
-  popover.background.menu button,
-  popover.background button.model {
-    min-height: 26px; }
-    popover.menu button:checked, popover.menu button:active,
-    popover button.model:checked,
-    popover button.model:active,
-    popover.background.menu button:checked,
-    popover.background.menu button:active,
-    popover.background button.model:checked,
-    popover.background button.model:active {
-      background-color: #0062FF;
-      color: #ffffff; }
 
 cursor-handle {
   background-color: transparent;
@@ -1946,15 +1898,11 @@ scrollbar {
 
 row
 switch:not(:indeterminate), row:selected
-switch:not(:indeterminate), .tweak-titlebar-right > switch:not(:indeterminate),
-dialog.csd > headerbar.titlebar > switch:not(:indeterminate), row
+switch:not(:indeterminate), row
 switch:not(:indeterminate) slider:not(:indeterminate), row:selected
-switch:not(:indeterminate) slider:not(:indeterminate), .tweak-titlebar-right > switch:not(:indeterminate) slider:not(:indeterminate),
-dialog.csd > headerbar.titlebar > switch:not(:indeterminate) slider:not(:indeterminate), row
-switch:disabled:not(:indeterminate), .tweak-titlebar-right > switch:disabled:not(:indeterminate),
-dialog.csd > headerbar.titlebar > switch:disabled:not(:indeterminate), row
-switch:not(:indeterminate) slider:disabled:not(:indeterminate), .tweak-titlebar-right > switch:not(:indeterminate) slider:disabled:not(:indeterminate),
-dialog.csd > headerbar.titlebar > switch:not(:indeterminate) slider:disabled:not(:indeterminate) {
+switch:not(:indeterminate) slider:not(:indeterminate), row
+switch:disabled:not(:indeterminate), row
+switch:not(:indeterminate) slider:disabled:not(:indeterminate) {
   padding: 0;
   border: none;
   color: transparent;
@@ -1966,52 +1914,39 @@ dialog.csd > headerbar.titlebar > switch:not(:indeterminate) slider:disabled:not
   font-size: 0;
   outline-color: transparent; }
   row
-  switch:dir(rtl):not(:indeterminate), .tweak-titlebar-right > switch:dir(rtl):not(:indeterminate),
-  dialog.csd > headerbar.titlebar > switch:dir(rtl):not(:indeterminate), row
-  switch:not(:indeterminate) slider:dir(rtl):not(:indeterminate), .tweak-titlebar-right > switch:not(:indeterminate) slider:dir(rtl):not(:indeterminate),
-  dialog.csd > headerbar.titlebar > switch:not(:indeterminate) slider:dir(rtl):not(:indeterminate), row
-  switch:disabled:dir(rtl):not(:indeterminate), .tweak-titlebar-right > switch:disabled:dir(rtl):not(:indeterminate),
-  dialog.csd > headerbar.titlebar > switch:disabled:dir(rtl):not(:indeterminate), row
-  switch:not(:indeterminate) slider:disabled:dir(rtl):not(:indeterminate), .tweak-titlebar-right > switch:not(:indeterminate) slider:disabled:dir(rtl):not(:indeterminate),
-  dialog.csd > headerbar.titlebar > switch:not(:indeterminate) slider:disabled:dir(rtl):not(:indeterminate) {
+  switch:dir(rtl):not(:indeterminate), row
+  switch:not(:indeterminate) slider:dir(rtl):not(:indeterminate), row
+  switch:disabled:dir(rtl):not(:indeterminate), row
+  switch:not(:indeterminate) slider:disabled:dir(rtl):not(:indeterminate) {
     background-position: left center; }
 
 row
-switch:not(:indeterminate), .tweak-titlebar-right > switch:not(:indeterminate),
-dialog.csd > headerbar.titlebar > switch:not(:indeterminate) {
+switch:not(:indeterminate) {
   min-width: 40px;
   min-height: 22px;
   margin: 0;
   background-size: 40px 22px;
   background-image: -gtk-scaled(url("assets/switch.png"), url("assets/switch@2.png")); }
   row
-  switch:not(:indeterminate) slider:not(:indeterminate), .tweak-titlebar-right > switch:not(:indeterminate) slider:not(:indeterminate),
-  dialog.csd > headerbar.titlebar > switch:not(:indeterminate) slider:not(:indeterminate) {
+  switch:not(:indeterminate) slider:not(:indeterminate) {
     margin: 0;
     background-size: 52px 24px; }
   row
-  switch:not(:indeterminate):hover, .tweak-titlebar-right > switch:not(:indeterminate):hover,
-  dialog.csd > headerbar.titlebar > switch:not(:indeterminate):hover {
+  switch:not(:indeterminate):hover {
     background-image: -gtk-scaled(url("assets/switch-hover.png"), url("assets/switch-hover@2.png")); }
   row
-  switch:not(:indeterminate):checked, .tweak-titlebar-right > switch:not(:indeterminate):checked,
-  dialog.csd > headerbar.titlebar > switch:not(:indeterminate):checked {
+  switch:not(:indeterminate):checked {
     background-image: -gtk-scaled(url("assets/switch-active.png"), url("assets/switch-active@2.png")); }
     row
-    switch:not(:indeterminate):checked:hover, .tweak-titlebar-right > switch:not(:indeterminate):checked:hover,
-    dialog.csd > headerbar.titlebar > switch:not(:indeterminate):checked:hover {
+    switch:not(:indeterminate):checked:hover {
       background-image: -gtk-scaled(url("assets/switch-active-hover.png"), url("assets/switch-active-hover@2.png")); }
     row
-    switch:not(:indeterminate):checked:disabled, .tweak-titlebar-right > switch:not(:indeterminate):checked:disabled,
-    dialog.csd > headerbar.titlebar > switch:not(:indeterminate):checked:disabled, row
-    switch:not(:indeterminate):checked:disabled:hover, .tweak-titlebar-right > switch:not(:indeterminate):checked:disabled:hover,
-    dialog.csd > headerbar.titlebar > switch:not(:indeterminate):checked:disabled:hover {
+    switch:not(:indeterminate):checked:disabled, row
+    switch:not(:indeterminate):checked:disabled:hover {
       background-image: -gtk-scaled(url("assets/switch-active-insensitive.png"), url("assets/switch-active-insensitive@2.png")); }
   row
-  switch:not(:indeterminate):disabled, .tweak-titlebar-right > switch:not(:indeterminate):disabled,
-  dialog.csd > headerbar.titlebar > switch:not(:indeterminate):disabled, row
-  switch:not(:indeterminate):disabled:hover, .tweak-titlebar-right > switch:not(:indeterminate):disabled:hover,
-  dialog.csd > headerbar.titlebar > switch:not(:indeterminate):disabled:hover {
+  switch:not(:indeterminate):disabled, row
+  switch:not(:indeterminate):disabled:hover {
     background-image: -gtk-scaled(url("assets/switch-insensitive.png"), url("assets/switch-insensitive@2.png")); }
 
 switch {
@@ -3153,7 +3088,7 @@ colorswatch#add-color-button {
     color: #c5c5c5;
     border-color: rgba(255, 255, 255, 0.12);
     background-color: #5c5c5c;
-    box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.06), 0px 1px 2px 0px rgba(16, 16, 16, 0.02); }
+    box-shadow: none; }
   colorswatch#add-color-button overlay {
     border-color: transparent;
     background-color: transparent;
@@ -3178,7 +3113,7 @@ colorchooser .popover.osd {
   color: #c5c5c5;
   border-color: rgba(255, 255, 255, 0.12);
   background-color: #5c5c5c;
-  box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.06), 0px 1px 2px 0px rgba(16, 16, 16, 0.02); }
+  box-shadow: none; }
 
 .context-menu, popover.touch-selection, .csd popover.touch-selection,
 popover.background.touch-selection, .csd
@@ -3807,6 +3742,10 @@ button.documents-favorite:active:hover {
 .tweak-category:not(:selected):not(:hover) {
   background-image: linear-gradient(to bottom, #242424, #242424); }
 
+.tweak-titlebar-right > switch,
+dialog.csd > headerbar.titlebar > switch {
+  margin: 8px 0; }
+
 .tr-workarea undershoot,
 .tr-workarea overshoot {
   border-color: transparent; }
@@ -4401,7 +4340,7 @@ GtkListBox .h4 {
     color: #c5c5c5;
     border-color: rgba(255, 255, 255, 0.12);
     background-color: #5c5c5c;
-    box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.06), 0px 1px 2px 0px rgba(16, 16, 16, 0.02); }
+    box-shadow: none; }
   #content_frame button:active, #content_frame button:checked {
     color: #ffffff;
     background-color: #0062FF;

@@ -633,7 +633,7 @@ toolbar.inline-toolbar toolbutton {
     > button + button { border-#{$_border}-style: none; }
 
     > #{$_uncolored_button}:hover:not(:only-child),
-    > #{$_uncolored_button}:hover + #{$_uncolored_button} { box-shadow: none; }
+    > #{$_uncolored_button}:hover + #{$_uncolored_button} { }
 
     > #{$_uncolored_button}:disabled:not(:only-child),
     > #{$_uncolored_button}:disabled + #{$_uncolored_button}:not(:hover) { }
@@ -651,7 +651,7 @@ toolbar.inline-toolbar toolbutton {
     > button:checked + #{$_uncolored_button}:disabled,
     > button.suggested-action + #{$_uncolored_button}:disabled,
     > button.destructive-action + #{$_uncolored_button}:disabled,
-    > entry + #{$_uncolored_button}:disabled:not(:only-child), { box-shadow: none; }
+    > entry + #{$_uncolored_button}:disabled:not(:only-child), { }
   }
 }
 
@@ -1817,16 +1817,6 @@ popover.background {
     &.touch-selection { @extend .context-menu }
 
     &.osd { @extend %osd; }
-  }
-
-  &.menu button,
-  button.model {
-    min-height: 26px;
-    &:checked,
-    &:active {
-      background-color: $selected_bg_color;
-      color: $selected_fg_color;
-    }
   }
 }
 
