@@ -24,10 +24,12 @@ radio-unchecked-selected
 radio-unchecked-insensitive-selected
 radio-mixed-selected
 radio-mixed-insensitive-selected
-switch-header
-switch-active-header
-switch-insensitive-header
-switch-active-insensitive-header
+switch
+switch-hover
+switch-active
+switch-active-hover
+switch-insensitive
+switch-active-insensitive
 
 slider-horz-scale-has-marks-below
 slider-horz-scale-has-marks-below-hover

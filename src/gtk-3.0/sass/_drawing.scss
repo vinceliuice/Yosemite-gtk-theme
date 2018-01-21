@@ -252,7 +252,7 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
   //
     color: $header_fg;
     outline-offset: -3px;
-    border-style: none;
+    border: none;
     background-color: $header_button_bg;
     background-image: none;
     box-shadow: $shadow_1;
@@ -263,7 +263,7 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
   // hovered header-bar button
   //
     color: $header_fg;
-    border-style: none;
+    border: none;
     background-color: $header_button_hover_bg;
     box-shadow: $shadow_1;
   }
@@ -273,7 +273,7 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
   // pushed header-bar button
   //
     color: $selected_fg_color;
-    border-style: none;
+    border: none;
     background-color: $header_button_active_bg;
     background-image: none;
     box-shadow: none;
@@ -284,7 +284,7 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
   // pushed header-bar button
   //
     color: $selected_fg_color;
-    border-style: none;
+    border: none;
     background-color: $header_button_checked_bg;
     background-image: none;
     box-shadow: none;
@@ -297,7 +297,7 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
     label, & { color: transparentize($header_fg, 0.45); }
 
     background-color: $header_button_bg;
-    border-style: none;
+    border: none;
     box-shadow: $shadow_1;
   }
 
@@ -306,7 +306,7 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
   // header-bar insensitive pushed button
   //
     color: transparentize($selected_fg_color, 0.25);
-    border-style: none;
+    border: none;
     background-color: transparentize($header_button_active_bg, 0.35);
     box-shadow: none;
   }

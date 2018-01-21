@@ -560,23 +560,25 @@ $slider_color: if($variant == 'light', white, white);
 
   .popup-menu-arrow { } //defined globally in the TOP BAR
   .popup-sub-menu {
-    background-color: rgba($alt_base_color, 0.5);
+    background-color: rgba($alt_base_color, 0.45);
     box-shadow: $shadow_0;
+    border-radius: 0 0 3px 3px;
   }
 
-  .popup-menu-content { padding: 8px 0; }
+  .popup-menu-content { padding: 4px 0; margin: 0 2px; }
   .popup-menu-item {
-    // min-height: $menuitem_size - 4px * 2;
-    spacing: 0;
+    spacing: 6px;
     transition-duration: $shorter_duration;
+    border-radius: 3px;
 
-    &:ltr { padding: 0.3em 24px 0.3em 0; }
-    &:rtl { padding: 0.3em 0 0.3em 24px; }
+    &:ltr { padding: 0.4em 20px 0.4em 0; }
+    &:rtl { padding: 0.4em 0 0.4em 20px; }
     &:checked {
       background-color: $primary_color;
       color: $inverse_fg_color;
       box-shadow: $shadow_0;
       font-weight: normal;
+      border-radius: 3px 3px 0 0;
       &.selected {
         background-color: mix($inverse_fg_color, $primary_color, percentage($lower_opacity / 2));
         color: $inverse_fg_color;

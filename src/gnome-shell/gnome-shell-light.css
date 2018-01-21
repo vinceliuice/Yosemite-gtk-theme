@@ -527,22 +527,26 @@ StScrollBar {
   min-width: 100px;
   background-color: transparent; }
   .popup-menu .popup-sub-menu {
-    background-color: rgba(217, 217, 217, 0.5);
-    box-shadow: 0 0 transparent; }
+    background-color: rgba(191, 191, 191, 0.45);
+    box-shadow: 0 0 transparent;
+    border-radius: 0 0 3px 3px; }
   .popup-menu .popup-menu-content {
-    padding: 8px 0; }
+    padding: 4px 0;
+    margin: 0 2px; }
   .popup-menu .popup-menu-item {
-    spacing: 0;
-    transition-duration: 100ms; }
+    spacing: 6px;
+    transition-duration: 100ms;
+    border-radius: 3px; }
     .popup-menu .popup-menu-item:ltr {
-      padding: 0.3em 24px 0.3em 0; }
+      padding: 0.4em 20px 0.4em 0; }
     .popup-menu .popup-menu-item:rtl {
-      padding: 0.3em 0 0.3em 24px; }
+      padding: 0.4em 0 0.4em 20px; }
     .popup-menu .popup-menu-item:checked {
       background-color: #0e6bff;
       color: rgba(255, 255, 255, 0.85);
       box-shadow: 0 0 transparent;
-      font-weight: normal; }
+      font-weight: normal;
+      border-radius: 3px 3px 0 0; }
       .popup-menu .popup-menu-item:checked.selected {
         background-color: rgba(42, 124, 255, 0.9775);
         color: rgba(255, 255, 255, 0.85); }
