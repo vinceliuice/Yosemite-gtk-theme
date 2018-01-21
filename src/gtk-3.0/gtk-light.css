@@ -871,9 +871,8 @@ headerbar,
     transition: 200ms ease-out;
     color: rgba(40, 32, 32, 0.5);
     background-image: none;
-    border-color: #d5d5d5;
     background-color: #f6f6f6;
-    box-shadow: inset 0 1px rgba(242, 242, 242, 0.95), 0 -1px 2px rgba(0, 0, 0, 0.06); }
+    border-bottom: 1px solid #d5d5d5; }
     .csd headerbar:backdrop, .csd
     .titlebar:backdrop:not(headerbar) {
       background-color: #F6F6F6; }
