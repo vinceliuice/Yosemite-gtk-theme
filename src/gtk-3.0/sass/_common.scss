@@ -1317,8 +1317,8 @@ headerbar {
     > button {
       @include button(header-normal);
       &:hover { @include button(header-hover); }
-      &:active { @include button(header-active); box-shadow: $shadow_1; text-shadow: $text_shadow; }
-      &:checked { @include button(header-checked); box-shadow: $shadow_1; text-shadow: $text_shadow; }
+      &:active { @include button(header-active); box-shadow: $shadow_1; }
+      &:checked { @include button(header-checked); box-shadow: $shadow_1; }
       &:disabled { color: transparentize($header_fg, 0.4); }
       &:backdrop { opacity: 0.85; box-shadow: $shadow_2; }
       &, &:hover, &:active, &:checked, &:disabled { @extend %linked_header; border-right: 1px solid $header_button_border; }

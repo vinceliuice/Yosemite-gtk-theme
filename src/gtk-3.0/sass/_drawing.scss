@@ -276,6 +276,7 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
     border: none;
     background-color: $header_button_active_bg;
     background-image: none;
+    text-shadow: if($variant=='light', $text_shadow, none);
     box-shadow: none;
   }
 
@@ -287,6 +288,7 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
     border: none;
     background-color: $header_button_checked_bg;
     background-image: none;
+    text-shadow: if($variant=='light', $text_shadow, none);
     box-shadow: none;
   }
 
