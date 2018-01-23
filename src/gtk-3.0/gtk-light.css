@@ -1663,7 +1663,8 @@ menu,
     min-height: 16px;
     padding: 4px;
     background-color: #ffffff;
-    border-radius: 0; }
+    border-radius: 0;
+    border: 1px solid transparent; }
     menu > arrow.top,
     .menu > arrow.top {
       margin-top: -18px;
@@ -1850,7 +1851,7 @@ scrollbar {
     -gtk-icon-source: -gtk-icontheme("pan-left-symbolic"); }
   scrollbar slider {
     min-width: 4px;
-    min-height: 6px;
+    min-height: 4px;
     margin: -1px;
     border: 4px solid transparent;
     border-radius: 8px;
