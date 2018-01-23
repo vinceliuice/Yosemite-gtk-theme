@@ -1693,6 +1693,7 @@ popover.background {
   .csd popover, popover, .csd
   popover.background,
   popover.background {
+    border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0.12); }
   popover separator,
   popover.background separator {

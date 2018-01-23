@@ -1811,7 +1811,10 @@ popover.background {
 
   box-shadow: 0 2px 6px 0 if($variant=='light', transparentize(black, 0.93), transparentize(black, 0.85));
 
-  .csd &, & { border: 1px solid if($variant=='light', darken($borders_color, 5%), lighten($borders_color, 5%)); }
+  .csd &, & {
+      border-radius: $bt_radius;
+      border: 1px solid if($variant=='light', darken($borders_color, 5%), lighten($borders_color, 5%));
+    }
 
   & separator { background-color: $_popover_bg; }
   label.separator { @extend label.separator; } // Noice
