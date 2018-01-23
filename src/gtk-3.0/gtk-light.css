@@ -77,8 +77,6 @@ popover.background label.separator {
 label selection {
   color: #ffffff;
   background-color: #0e6bff; }
-label:disabled {
-  color: rgba(36, 36, 36, 0.55); }
 
 .dim-label, label.separator, popover label.separator,
 popover.background label.separator, headerbar .subtitle,
@@ -858,31 +856,33 @@ headerbar,
 .titlebar:not(headerbar) {
   min-height: 36px;
   padding: 0 8px;
-  background-image: linear-gradient(0deg, #d2d2d2 0%, #E2E2E2 50%, #e9e9e9 95%, #f5f5f5 100%);
+  background-image: linear-gradient(0deg, rgba(210, 210, 210, 0.95) 0%, rgba(226, 226, 226, 0.95) 50%, rgba(233, 233, 233, 0.95) 95%, rgba(245, 245, 245, 0.95) 100%);
   color: rgba(40, 32, 32, 0.8);
-  background-color: #e5e5e5;
+  background-color: rgba(229, 229, 229, 0.95);
   border-bottom: 1px solid #afafaf; }
   .csd headerbar, .csd
   .titlebar:not(headerbar) {
-    background-image: linear-gradient(0deg, #d2d2d2 0%, #E2E2E2 50%, #e9e9e9 95%, #f5f5f5 100%);
-    background-color: #e5e5e5; }
+    background-image: linear-gradient(0deg, rgba(210, 210, 210, 0.95) 0%, rgba(226, 226, 226, 0.95) 50%, rgba(233, 233, 233, 0.95) 95%, rgba(245, 245, 245, 0.95) 100%);
+    background-color: rgba(229, 229, 229, 0.95);
+    border-bottom: 1px solid #afafaf; }
   headerbar:backdrop,
   .titlebar:backdrop:not(headerbar) {
     transition: 200ms ease-out;
     color: rgba(40, 32, 32, 0.5);
     background-image: none;
-    background-color: #f6f6f6;
-    border-bottom: 1px solid #d5d5d5; }
+    background-color: #F6F6F6;
+    border-color: #d5d5d5; }
     .csd headerbar:backdrop, .csd
     .titlebar:backdrop:not(headerbar) {
-      background-color: #F6F6F6; }
+      background-color: #F6F6F6;
+      border-color: #d5d5d5; }
   .maximized headerbar, .maximized
   .titlebar:not(headerbar) {
-    background-color: #e5e5e5;
+    background-color: rgba(229, 229, 229, 0.95);
     border-bottom: 1px solid #afafaf; }
     .maximized headerbar:backdrop, .maximized
     .titlebar:backdrop:not(headerbar) {
-      background-color: #f6f6f6;
+      background-color: #F6F6F6;
       border-color: #d5d5d5; }
   headerbar .title,
   .titlebar:not(headerbar) .title {
@@ -926,24 +926,24 @@ headerbar,
     border-radius: 0; }
   .maximized headerbar, .maximized
   .titlebar:not(headerbar) {
-    background-color: #e5e5e5;
+    background-color: rgba(229, 229, 229, 0.95);
     border-color: #afafaf; }
     .maximized headerbar:backdrop, .maximized
     .titlebar:backdrop:not(headerbar) {
-      background-color: #f6f6f6; }
+      background-color: #F6F6F6; }
   headerbar.default-decoration, .csd headerbar.default-decoration,
   .default-decoration.titlebar:not(headerbar), .csd
   .default-decoration.titlebar:not(headerbar) {
     min-height: 28px;
     padding: 0 4px;
-    background-color: #e5e5e5;
-    background-image: linear-gradient(0deg, #E2E2E2 0%, #f5f5f5 100%);
+    background-color: rgba(229, 229, 229, 0.95);
+    background-image: linear-gradient(0deg, rgba(226, 226, 226, 0.95) 0%, rgba(245, 245, 245, 0.95) 100%);
     border: none;
     box-shadow: none; }
     .maximized headerbar.default-decoration, .maximized .csd headerbar.default-decoration, .maximized
     .default-decoration.titlebar:not(headerbar), .maximized .csd
     .default-decoration.titlebar:not(headerbar) {
-      background-color: #e5e5e5; }
+      background-color: rgba(229, 229, 229, 0.95); }
 
 .titlebar {
   border-radius: 6px 6px 0 0; }
@@ -1567,7 +1567,7 @@ menubar,
   -GtkWidget-window-dragging: true;
   padding: 0px;
   background-color: #e5e5e5;
-  background-image: linear-gradient(180deg, #E2E2E2 0%, #d2d2d2 100%);
+  background-image: linear-gradient(180deg, rgba(226, 226, 226, 0.95) 0%, rgba(210, 210, 210, 0.95) 100%);
   color: rgba(40, 32, 32, 0.8);
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.12); }
   menubar:backdrop,
@@ -1597,8 +1597,14 @@ menu,
 .menu {
   margin: 0;
   padding: 6px 0;
+  border-radius: 2px;
   background-color: white;
-  border: none; }
+  border: 1px solid rgba(0, 0, 0, 0.05); }
+  .csd menu, .csd
+  .menu {
+    border-radius: 2px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.05); }
   menu separator, .csd menu separator,
   .menu separator, .csd
   .menu separator {
@@ -3807,7 +3813,8 @@ MsdOsdWindow.background.osd {
     border: none;
     border-radius: 5px; }
 
-.mate-panel-menu-bar, .mate-panel-menu-bar menubar,
+.mate-panel-menu-bar,
+.mate-panel-menu-bar menubar,
 panel-toplevel.background,
 panel-toplevel.background menubar {
   background-color: #eaeaea; }
@@ -3818,7 +3825,8 @@ panel-toplevel.background menubar,
 panel-toplevel.background #PanelApplet label,
 panel-toplevel.background #PanelApplet image {
   color: #363636; }
-.mate-panel-menu-bar button label, .mate-panel-menu-bar button image,
+.mate-panel-menu-bar button label,
+.mate-panel-menu-bar button image,
 .mate-panel-menu-bar #tasklist-button label,
 .mate-panel-menu-bar #tasklist-button image,
 panel-toplevel.background button label,
@@ -3877,10 +3885,16 @@ panel-toplevel.background button:not(#tasklist-button), .xfce4-panel.panel butto
     border: none;
     background-color: #0e6bff; }
     .mate-panel-menu-bar button:active:not(#tasklist-button) label,
-    panel-toplevel.background button:active:not(#tasklist-button) label, .xfce4-panel.panel button.flat:active label, .xfce4-panel.panel button.sidebar-button:active label, .mate-panel-menu-bar button:active:not(#tasklist-button) image,
-    panel-toplevel.background button:active:not(#tasklist-button) image, .xfce4-panel.panel button.flat:active image, .xfce4-panel.panel button.sidebar-button:active image, .mate-panel-menu-bar button:checked:not(#tasklist-button) label,
-    panel-toplevel.background button:checked:not(#tasklist-button) label, .xfce4-panel.panel button.flat:checked label, .xfce4-panel.panel button.sidebar-button:checked label, .mate-panel-menu-bar button:checked:not(#tasklist-button) image,
-    panel-toplevel.background button:checked:not(#tasklist-button) image, .xfce4-panel.panel button.flat:checked image, .xfce4-panel.panel button.sidebar-button:checked image {
+    panel-toplevel.background button:active:not(#tasklist-button) label, .xfce4-panel.panel button.flat:active label, .xfce4-panel.panel button.sidebar-button:active label,
+    .mate-panel-menu-bar button:active:not(#tasklist-button) image,
+    panel-toplevel.background button:active:not(#tasklist-button) image,
+    .xfce4-panel.panel button.flat:active image,
+    .xfce4-panel.panel button.sidebar-button:active image, .mate-panel-menu-bar button:checked:not(#tasklist-button) label,
+    panel-toplevel.background button:checked:not(#tasklist-button) label, .xfce4-panel.panel button.flat:checked label, .xfce4-panel.panel button.sidebar-button:checked label,
+    .mate-panel-menu-bar button:checked:not(#tasklist-button) image,
+    panel-toplevel.background button:checked:not(#tasklist-button) image,
+    .xfce4-panel.panel button.flat:checked image,
+    .xfce4-panel.panel button.sidebar-button:checked image {
       color: inherit; }
 
 .nautilus-window .floating-bar {
@@ -3924,7 +3938,8 @@ panel-toplevel.background button:not(#tasklist-button), .xfce4-panel.panel butto
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   background-image: linear-gradient(to bottom, white, white);
   background-color: transparent; }
-  .gala-notification .title, .gala-notification .label {
+  .gala-notification .title,
+  .gala-notification .label {
     color: #5c616c; }
 
 .panel {
@@ -3960,7 +3975,8 @@ panel-toplevel.background button:not(#tasklist-button), .xfce4-panel.panel butto
   -gtk-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
   .composited-indicator > GtkWidget > GtkWidget:first-child {
     padding: 0 2px; }
-  .composited-indicator .menuitem:active, .composited-indicator .menuitem:hover {
+  .composited-indicator .menuitem:active,
+  .composited-indicator .menuitem:hover {
     border-style: none;
     background-image: none;
     box-shadow: none; }

@@ -1523,7 +1523,7 @@ StScrollBar {
 .app-folder-popup {
   -arrow-border-radius: 8px;
   -arrow-background-color: rgba(255, 255, 255, 0.1);
-  -arrow-base: 24px;
+  -arrow-base: 0;
   -arrow-rise: 12px; }
 
 .app-folder-popup-bin {
@@ -1599,11 +1599,11 @@ StScrollBar {
   margin: 5px;
   border-radius: 8px;
   color: rgba(0, 0, 0, 0.87);
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.92);
   border: none;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.24), 0 3px 3px rgba(0, 0, 0, 0.345); }
   .notification-banner:hover {
-    background-color: #ffffff; }
+    background-color: rgba(255, 255, 255, 0.95); }
   .notification-banner:focus {
     background-color: #ffffff; }
   .notification-banner .notification-icon {

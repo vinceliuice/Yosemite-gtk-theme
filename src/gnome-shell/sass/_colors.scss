@@ -18,6 +18,7 @@ $hint_fg_color:               if($variant == 'light', rgba($black, 0.38), rgba($
 $disabled_fg_color:           if($variant == 'light', rgba($black, 0.38), rgba($white, 0.5));
 $disabled_secondary_fg_color: if($variant == 'light', rgba($black, 0.26), rgba($white, 0.3));
 $track_color:                 if($variant == 'light', rgba($black, 0.2), rgba($white, 0.1));
+$visit_color:                 if($variant == 'light', rgba($black, 0.16), rgba($white, 0.08));
 $divider_color:               if($variant == 'light', rgba($black, 0.12), rgba($white, 0.06));
 
 $titlebar_fg_color:                    if($panel == 'light', rgba($black, 0.87), $white);

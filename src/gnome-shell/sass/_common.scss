@@ -1663,7 +1663,7 @@ $slider_color: if($variant == 'light', white, white);
   .app-folder-popup { //expanded collection
     -arrow-border-radius: $bt_radius;
     -arrow-background-color: $inverse_bg_color;
-    -arrow-base: 24px;
+    -arrow-base: 0;
     -arrow-rise: 12px;
   }
   .app-folder-popup-bin { padding: 5px; }
@@ -1756,10 +1756,10 @@ $slider_color: if($variant == 'light', white, white);
     margin: 5px;
     border-radius: $bt_radius;
     color: $fg_color;
-    background-color: $base_color;
+    background-color: rgba($base_color, 0.92);
     border: none;
     box-shadow: $shadow_2;
-    &:hover { background-color: $base_color; }
+    &:hover { background-color: rgba($base_color, 0.95); }
     &:focus { background-color: $base_color; }
 
     .notification-icon { padding: 5px; }
