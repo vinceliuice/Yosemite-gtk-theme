@@ -77,6 +77,8 @@ popover.background label.separator {
 label selection {
   color: #ffffff;
   background-color: #0062FF; }
+label:disabled {
+  color: rgba(222, 222, 222, 0.45); }
 
 .dim-label, label.separator, popover label.separator,
 popover.background label.separator, headerbar .subtitle,
@@ -689,6 +691,9 @@ modelbutton.flat {
   menuitem.button.flat:checked,
   modelbutton.flat:checked {
     color: #dedede; }
+  menuitem.button.flat:disabled,
+  modelbutton.flat:disabled {
+    color: rgba(222, 222, 222, 0.45); }
   menuitem.button.flat check:last-child,
   menuitem.button.flat radio:last-child,
   modelbutton.flat check:last-child,
@@ -1592,6 +1597,9 @@ menubar,
     .menubar > menuitem:disabled {
       color: rgba(225, 219, 219, 0.2);
       border-color: transparent; }
+    menubar > menuitem label:disabled,
+    .menubar > menuitem label:disabled {
+      color: rgba(225, 219, 219, 0.2); }
 
 menu,
 .menu {

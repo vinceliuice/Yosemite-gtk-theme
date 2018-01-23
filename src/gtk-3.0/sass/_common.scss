@@ -126,8 +126,7 @@ label {
   }
 
   &:disabled {
-//    color: $insensitive_fg_color;
-
+    color: $insensitive_fg_color;
     selection { @extend %selected_items:disabled; }
   }
 }
@@ -761,6 +760,7 @@ modelbutton.flat {
   &:hover { background-color: if($variant=='light', mix($fg_color,$bg_color,5%), mix($fg_color,$bg_color,10%)); }
   &:active, &:selected { &, arrow { @include button(active); } }
   &:checked { color: $fg_color; }
+  &:disabled { color: $insensitive_fg_color; }
 
   // FIXME: temporary workaround
   check:last-child,
@@ -1694,6 +1694,9 @@ menubar,
       color: transparentize($header_fg, 0.6);
       border-color: transparent;
     }
+
+    label { &:disabled { color: transparentize($header_fg, 0.6); } }
+
   }
 }
 
