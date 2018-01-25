@@ -3169,7 +3169,7 @@ decoration {
     box-shadow: 0 3px 5px 0 transparent, 0 8px 8px 0 transparent, 0 3px 3px 0 rgba(0, 0, 0, 0.16); }
   .fullscreen decoration, .tiled decoration {
     border-radius: 0;
-    box-shadow: none; }
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16); }
   .popup decoration {
     border-radius: 5px; }
   .ssd decoration {

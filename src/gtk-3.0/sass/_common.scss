@@ -3357,7 +3357,7 @@ decoration {
   .fullscreen &,
   .tiled & {
     border-radius: 0;
-    box-shadow: none;
+    box-shadow: 0 3px 3px 0 if($variant == 'light', opacify($_wm_border, 0.06), opacify($_wm_border, 0.05));
   }
   .popup & {
 //   box-shadow: none;
