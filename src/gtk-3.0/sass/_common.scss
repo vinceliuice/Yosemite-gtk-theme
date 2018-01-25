@@ -3336,22 +3336,23 @@ stackswitcher button {
 // Window Decorations
 //
 
+$_wm_border: if($variant=='light', transparentize(black, 0.9), transparentize(black, 0.8));
+
 decoration {
+  transition: $shadow_transition;
   border-radius: if($darker=='false' and $variant=='light', $bt_radius $bt_radius 0 0, $bt_radius $bt_radius 0 0);
   border-width: 0;
-
-  $_wm_border: if($variant=='light', transparentize(black, 0.9), transparentize(black, 0.8));
-
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2), 0 8px 3px rgba(0, 0, 0, 0.15), 0 16px 16px transparent;
+  box-shadow: 0 3px 5px 0 if($variant == 'light', opacify($_wm_border, 0.1), opacify($_wm_border, 0.08)),
+              0 8px 8px 0 if($variant == 'light', opacify($_wm_border, 0.1), opacify($_wm_border, 0.08));
 
   // this is used for the resize cursor area
-  margin: 8px;
+  margin: 6px;
 
   &:backdrop {
     // the transparent shadow here is to enforce that the shadow extents don't
     // change when we go to backdrop, to prevent jumping windows
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), 0 3px 3px rgba(0, 0, 0, 0.16), 0 16px 16px transparent;
-    transition: $backdrop_transition;
+    box-shadow: 0 3px 5px 0 transparent, 0 8px 8px 0 transparent,
+                0 3px 3px 0 if($variant == 'light', opacify($_wm_border, 0.06), opacify($_wm_border, 0.05));
   }
   .fullscreen &,
   .tiled & {
