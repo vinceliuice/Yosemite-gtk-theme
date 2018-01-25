@@ -746,7 +746,7 @@ StScrollBar {
   transition-duration: 250ms;
   font-weight: bold;
   height: 28px;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2), 0 3px 3px rgba(0, 0, 0, 0.3); }
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2), 0 0 4px rgba(0, 0, 0, 0.3); }
   #panel:overview, #panel.unlock-screen, #panel.login-screen, #panel.lock-screen {
     background-color: rgba(255, 255, 255, 0.35); }
   #panel #panelLeft, #panel #panelCenter {
@@ -1385,9 +1385,9 @@ StScrollBar {
   padding: 3px 0;
   border: none;
   border-left: 0px;
-  border-radius: 0px 2px 2px 0px; }
+  border-radius: 0px 8px 8px 0px; }
   #dash:rtl {
-    border-radius: 2px 0 0 2px; }
+    border-radius: 8px 0 0 8px; }
   #dash .placeholder {
     background-image: url("assets/dash-placeholder.svg");
     background-size: contain;
@@ -1490,8 +1490,9 @@ StScrollBar {
   background-size: contain; }
 
 .app-well-app-running-dot {
-  width: 32px;
-  height: 2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 3px;
   background-color: rgba(255, 255, 255, 0.85);
   margin-bottom: 0; }
 

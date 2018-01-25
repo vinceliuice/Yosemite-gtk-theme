@@ -1497,10 +1497,10 @@ $slider_color: if($variant == 'light', white, white);
     padding: 3px 0;
     border: none;
     border-left: 0px;
-    border-radius: 0px 2px 2px 0px;
+    border-radius: 0px $bt_radius $bt_radius 0px;
 
     &:rtl {
-      border-radius: 2px 0 0 2px;
+      border-radius: $bt_radius 0 0 $bt_radius;
     }
 
     .placeholder {
@@ -1628,7 +1628,8 @@ $slider_color: if($variant == 'light', white, white);
   }
 
   .app-well-app-running-dot { //running apps indicator
-    width: 32px; height: 2px;
+    width: 5px; height: 5px;
+    border-radius: 3px;
     background-color: $inverse_fg_color;
     margin-bottom: 0;
   }
