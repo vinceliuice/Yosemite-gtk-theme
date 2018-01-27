@@ -2,8 +2,6 @@
   @return unquote("alpha(#{$c},#{$a})");
 }
 
-$ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-$backdrop_transition: 200ms ease-out;
 $asset_suffix: if($variant=='dark', '-dark', ''); // use dark assets in dark variant
 $darker_asset_suffix: if($darker=='true', '-dark', $asset_suffix);
 $bt_radius: 5px;
@@ -324,7 +322,6 @@ $_dot_color: $selected_bg_color;
   }
 }
 
-  $button_transition: all 200ms $ease-out-quad;
 button {
   min-height: 26px;
   min-width: 22px;

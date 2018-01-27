@@ -15,9 +15,12 @@ $text_shadow: 0 -1px rgba(#ffffff, 0.04), -1px  0px rgba(#202020, 0.05), 1px  0p
               0px  1px rgba(#202020, 0.3), 0px  2px rgba(#202020, 0.05);
 
 // Transitions
-$transition_1: all 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
-$transition_2: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+$ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 $shadow_transition: box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
+$backdrop_transition: 200ms ease-out;
+$button_transition: all 200ms $ease-out-quad;
+$transition_1: all 0.3s cubic-bezier(0, 0, 0.2, 1), $shadow_transition;
+$transition_2: all 0.2s cubic-bezier(0, 0, 0.2, 1);
 
 // Animations
 $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
