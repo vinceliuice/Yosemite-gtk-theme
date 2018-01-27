@@ -1,11 +1,16 @@
 
 // Shadows
-$shadow_0: 0px 1px 2px 0px rgba(16, 16, 16, 0.1), 0px 2px 2px 0px rgba(16, 16, 16, 0.05);
-$shadow_1: 0px 1px 1px 0px rgba(16, 16, 16, 0.12), 0px 1px 2px 0px rgba(16, 16, 16, 0.06);
-$shadow_2: 0px 1px 1px 0px rgba(16, 16, 16, 0.1), 0px 1px 2px 0px rgba(16, 16, 16, 0.05);
-$shadow_3: 0px 1px 1px 0px rgba(16, 16, 16, 0.06), 0px 1px 2px 0px rgba(16, 16, 16, 0.02);
-$shadow_4: 0px 2px 3px 0px rgba(16, 16, 16, 0.2), 0px 3px 5px 0px rgba(16, 16, 16, 0.15);
-$shadow_5: 0px 1px 2px 0px rgba(16, 16, 16, 0.15), 0px 2px 3px 0px rgba(16, 16, 16, 0.1);
+$button_shadow_1: 0px 1px 1px 0px rgba(16, 16, 16, 0.04), 0px 1px 2px 0px rgba(16, 16, 16, 0.01); // Normal button shadow
+
+$header_shadow_1: 0px 1px 1px 0px rgba(16, 16, 16, 0.12), 0px 1px 2px 0px rgba(16, 16, 16, 0.06); // Header-button shadow
+$header_shadow_2: 0px 1px 1px 0px rgba(16, 16, 16, 0.08), 0px 1px 2px 0px rgba(16, 16, 16, 0.03); // Header-button backdrop shadow
+
+$slider_shadow_1: 0px 1px 1px 0px rgba(16, 16, 16, 0.1), 0px 1px 2px 0px rgba(16, 16, 16, 0.05); // Slider normal shadow
+$slider_shadow_2: 0px 1px 2px 0px rgba(16, 16, 16, 0.1), 0px 2px 2px 0px rgba(16, 16, 16, 0.05); // Slider hover shadow
+
+$switch_shadow_1: 0px 1px 2px 0px rgba(16, 16, 16, 0.15), 0px 2px 3px 0px rgba(16, 16, 16, 0.1); // Switch-slider normal shadow
+$switch_shadow_2: 0px 2px 3px 0px rgba(16, 16, 16, 0.2), 0px 3px 5px 0px rgba(16, 16, 16, 0.15); // Switch-slider hover shadow
+
 $text_shadow: 0 -1px rgba(#ffffff, 0.04), -1px  0px rgba(#202020, 0.05), 1px  0px rgba(#202020, 0.05), 
               0px  1px rgba(#202020, 0.3), 0px  2px rgba(#202020, 0.05);
 
@@ -54,7 +59,7 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
     color: $text_color;
     border-color: $entry_border;
     background-color: $entry_bg;
-    box-shadow: $shadow_3;
+    @if $variant=='light' { box-shadow: $button_shadow_1, inset 0 0 0 1px rgba($borders_color, 0.01); }
   }
 
   @if $t==focus {
@@ -84,7 +89,7 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
     border-style: none;
     background-color: $header_button_bg;
     background-image: none;
-    box-shadow: $shadow_1;
+    box-shadow: $header_shadow_1;
 
     image, image:hover { color: inherit; }
   }
@@ -152,7 +157,7 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
     color: $fg_color;
     border-color: $button_border;
     background-color: $button_bg;
-    box-shadow: $shadow_3;
+    @if $variant=='light' { box-shadow: $button_shadow_1, inset 0 0 0 1px rgba($borders_color, 0.01); }
   }
 
   @else if $t==hover {
@@ -184,7 +189,7 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
 
     border-color: $button_border;
     background-color: transparentize($button_bg, 0.45);
-    box-shadow: $shadow_3;
+    box-shadow: $button_shadow_1;
   }
 
   @else if $t==insensitive-active {
@@ -255,7 +260,7 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
     border: none;
     background-color: $header_button_bg;
     background-image: none;
-    box-shadow: $shadow_1;
+    box-shadow: $header_shadow_1;
   }
 
   @else if $t==header-hover {
@@ -265,7 +270,9 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
     color: $header_fg;
     border: none;
     background-color: $header_button_hover_bg;
-    box-shadow: $shadow_1;
+    box-shadow: $header_shadow_1;
+    transition: $button_transition;
+    transition-duration: 300ms;
   }
 
   @else if $t==header-active {
@@ -278,6 +285,8 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
     background-image: none;
     text-shadow: if($variant=='light', $text_shadow, none);
     box-shadow: none;
+    transition: $button_transition;
+    transition-duration: 300ms;
   }
 
   @else if $t==header-checked {
@@ -300,7 +309,7 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
 
     background-color: $header_button_bg;
     border: none;
-    box-shadow: $shadow_1;
+    box-shadow: $header_shadow_1;
   }
 
   @else if $t==header-insensitive-active {
@@ -357,6 +366,7 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
 
     color: $actionb_fg;
     background-color: $actionb_bg;
+    background-image: none;
     border-color: darken($actionb_bg, 10%);
 //    box-shadow: none;
   }

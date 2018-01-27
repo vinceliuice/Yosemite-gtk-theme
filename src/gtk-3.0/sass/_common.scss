@@ -481,7 +481,6 @@ button {
       }
       &:active, &:checked {
         @include button(suggested_destructive, darken($b_color, 10%), $b_fg);
-        border-color: $selected_bg_color;
         box-shadow: none;
       }
       &.flat:disabled {
@@ -662,10 +661,10 @@ toolbar.inline-toolbar toolbutton {
   > button:hover:not(:checked):not(:active):not(:only-child) {
 
 //    &:hover {
-//      box-shadow: $shadow_1;
+//      box-shadow: $header_shadow_1;
 //    }
-//    &:first-child:hover { box-shadow: $shadow_1; }
-//    &:last-child:hover { box-shadow: $shadow_1; }
+//    &:first-child:hover { box-shadow: $header_shadow_1; }
+//    &:last-child:hover { box-shadow: $header_shadow_1; }
   }
 }
 
@@ -878,7 +877,7 @@ combobox {
   button.combo {
     min-width: 0;       // otherwise the arrow placement is unsymmetric
     padding-left: 8px;  //
-    padding-right: 8px  //
+    padding-right: 8px;  //
   }
   arrow {
     -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
@@ -1219,7 +1218,7 @@ headerbar {
   button {
     min-width: 28px;
     @include button(header-normal);
-    &:backdrop { opacity: 0.7; box-shadow: $shadow_2; }
+    &:backdrop { opacity: 0.7; box-shadow: $header_shadow_2; }
     &:hover { @include button(header-hover); }
     &:checked {
       @include button(header-checked);
@@ -1289,8 +1288,8 @@ headerbar {
     > #{$_uncolored_button}:hover:not(:only-child),
     > #{$_uncolored_button}:hover + #{$_uncolored_button},
     > #{$_uncolored_button}:disabled:not(:only-child),
-    > #{$_uncolored_button}:disabled + #{$_uncolored_button}:not(:hover) { box-shadow: $shadow_1; }
-    > #{$_uncolored_button}:disabled:backdrop { box-shadow: $shadow_2; }
+    > #{$_uncolored_button}:disabled + #{$_uncolored_button}:not(:hover) { box-shadow: $header_shadow_1; }
+    > #{$_uncolored_button}:disabled:backdrop { box-shadow: $header_shadow_2; }
   }
 
 %linked_header_middle {
@@ -1325,10 +1324,10 @@ headerbar {
     > button {
       @include button(header-normal);
       &:hover { @include button(header-hover); }
-      &:active { @include button(header-active); box-shadow: $shadow_1; }
-      &:checked { @include button(header-checked); box-shadow: $shadow_1; }
+      &:active { @include button(header-active); box-shadow: $header_shadow_1; }
+      &:checked { @include button(header-checked); box-shadow: $header_shadow_1; }
       &:disabled { color: transparentize($header_fg, 0.4); }
-      &:backdrop { opacity: 0.85; box-shadow: $shadow_2; }
+      &:backdrop { opacity: 0.85; box-shadow: $header_shadow_2; }
       &, &:hover, &:active, &:checked, &:disabled { @extend %linked_header; border-right: 1px solid $header_button_border; }
     }
     @include pathbar_linking_rules($sep_color:$header_button_border);
@@ -2159,10 +2158,10 @@ switch {
     border-radius: 50px;
     -gtk-outline-radius: 50px;
     background-color: white;
-    box-shadow: $shadow_5;
+    box-shadow: $switch_shadow_1;
   }
 
-  &:hover slider { box-shadow: $shadow_4; }
+  &:hover slider { box-shadow: $switch_shadow_2; }
 
   &:checked slider {
     margin: 2px 2px 2px 0;
@@ -2357,7 +2356,7 @@ scale {
     background-color: $selected_fg_color;
     border: 1px solid $_slider_border;
     border-radius: 100%;
-    box-shadow: $shadow_2;
+    box-shadow: $slider_shadow_1;
 
     transition: $button_transition;
     transition-property: background, border;
@@ -2365,14 +2364,14 @@ scale {
     &:hover {
         background-color: lighten($selected_fg_color, 3%);
         border-color: $_slider_border;
-        box-shadow: $shadow_0;
+        box-shadow: $slider_shadow_2;
       }
 
     &:active {
       background-clip: border-box;
       background-color: darken($selected_fg_color, 3%);
       border-color: $_slider_border;
-      box-shadow: $shadow_3;
+      box-shadow: $button_shadow_1;
     }
 
     &:disabled {
@@ -2411,13 +2410,13 @@ scale {
       &:hover {
         background-color: lighten($selected_fg_color, 3%);
         border-color: $_slider_border;
-        box-shadow: $shadow_0;
+        box-shadow: $slider_shadow_2;
         }
 
       &:active {
         background-color: darken($selected_fg_color, 3%);
         border-color: $_slider_border;
-        box-shadow: $shadow_3;
+        box-shadow: $button_shadow_1;
       }
 
       &:disabled {  }
@@ -2847,12 +2846,29 @@ messagedialog { // Message Dialog styling
     }
     .dialog-action-area button {
       border-bottom-style: none;
+      background-image: none;
 
       @extend %middle_button;
       &:first-child{ @extend %first_button; }
       &:last-child { @extend %last_button; }
       &:only-child { @extend %single_button; }
     }
+
+    .dialog-action-area button:not(.suggested-action):not(.destructive-action) {
+
+      &:hover {
+        @include button(flat-hover);
+        transition: $button_transition;
+        transition-duration: 200ms;
+       }
+
+      &:active, &:checked {
+          @include button(flat-active);
+          border-color: $borders_color;
+          text-shadow: $text_shadow;
+        }
+    }
+
     %middle_button {
       border-radius: 0;
       border-right-style: none;
@@ -3343,7 +3359,8 @@ decoration {
   border-radius: if($darker=='false' and $variant=='light', $bt_radius $bt_radius 0 0, $bt_radius $bt_radius 0 0);
   border-width: 0;
   box-shadow: 0 3px 5px 0 if($variant == 'light', opacify($_wm_border, 0.1), opacify($_wm_border, 0.05)),
-              0 8px 8px 0 if($variant == 'light', opacify($_wm_border, 0.1), opacify($_wm_border, 0.05));
+              0 8px 8px 0 if($variant == 'light', opacify($_wm_border, 0.1), opacify($_wm_border, 0.05)),
+              0 0 0 1px $borders_color;
 
   // this is used for the resize cursor area
   margin: 6px;
@@ -3352,7 +3369,8 @@ decoration {
     // the transparent shadow here is to enforce that the shadow extents don't
     // change when we go to backdrop, to prevent jumping windows
     box-shadow: 0 3px 5px 0 transparent, 0 8px 8px 0 transparent,
-                0 3px 3px 0 if($variant == 'light', opacify($_wm_border, 0.06), opacify($_wm_border, 0.03));
+                0 3px 3px 0 if($variant == 'light', opacify($_wm_border, 0.06), opacify($_wm_border, 0.03)),
+                0 0 0 1px $borders_color;
   }
   .fullscreen &,
   .tiled & {
@@ -3366,7 +3384,8 @@ decoration {
   // server-side decorations as used by mutter
   .ssd & {
     border-radius: $bt_radius $bt_radius 0 0;
-//    box-shadow: 0 0 0 0 if($darker=='true' or $variant == 'dark', transparentize(black, 0.35), $_wm_border);
+//    border: 1px solid $borders_color;
+    box-shadow: 0 0 0 1px $borders_color;
 
     &.maximized { border-radius: 0; }
   }
