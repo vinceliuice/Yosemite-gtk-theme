@@ -908,7 +908,8 @@ headerbar,
     background-color: #0e6bff;
     border-color: #0060f9;
     box-shadow: none;
-    background-image: none; }
+    background-image: none;
+    text-shadow: none; }
     headerbar.selection-mode:backdrop,
     .selection-mode.titlebar:backdrop:not(headerbar) {
       background-color: #0e6bff;
@@ -940,19 +941,30 @@ headerbar,
     .maximized headerbar:backdrop, .maximized
     .titlebar:backdrop:not(headerbar) {
       background-color: #F6F6F6; }
-  headerbar.default-decoration, .csd headerbar.default-decoration,
-  .default-decoration.titlebar:not(headerbar), .csd
+  headerbar.default-decoration,
   .default-decoration.titlebar:not(headerbar) {
-    min-height: 28px;
-    padding: 0 4px;
+    min-height: 26px;
+    padding: 0 6px;
     background-color: rgba(229, 229, 229, 0.95);
-    background-image: linear-gradient(0deg, rgba(226, 226, 226, 0.95) 0%, rgba(245, 245, 245, 0.95) 100%);
-    border: none;
-    box-shadow: none; }
-    .maximized headerbar.default-decoration, .maximized .csd headerbar.default-decoration, .maximized
-    .default-decoration.titlebar:not(headerbar), .maximized .csd
+    background-image: linear-gradient(0deg, rgba(226, 226, 226, 0.95) 0%, rgba(245, 245, 245, 0.95) 100%); }
+    .tiled headerbar.default-decoration, .maximized headerbar.default-decoration, .fullscreen headerbar.default-decoration, .tiled
+    .default-decoration.titlebar:not(headerbar), .maximized
+    .default-decoration.titlebar:not(headerbar), .fullscreen
     .default-decoration.titlebar:not(headerbar) {
-      background-color: rgba(229, 229, 229, 0.95); }
+      box-shadow: none; }
+    headerbar.default-decoration button.titlebutton,
+    .default-decoration.titlebar:not(headerbar) button.titlebutton {
+      min-height: 20px;
+      min-width: 20px;
+      margin: 0;
+      padding: 0; }
+  headerbar.default-decoration, .csd headerbar.default-decoration, headerbar.default-decoration:backdrop, .csd headerbar.default-decoration:backdrop,
+  .default-decoration.titlebar:not(headerbar), .csd
+  .default-decoration.titlebar:not(headerbar),
+  .default-decoration.titlebar:backdrop:not(headerbar), .csd
+  .default-decoration.titlebar:backdrop:not(headerbar) {
+    box-shadow: none;
+    border: none; }
 
 .titlebar {
   border-radius: 6px 6px 0 0; }
@@ -1104,6 +1116,8 @@ headerbar.selection-mode button, .nemo-window .selection-mode.primary-toolbar bu
   background-color: rgba(255, 255, 255, 0); }
 headerbar.selection-mode button:hover, .nemo-window .selection-mode.primary-toolbar button:hover {
   background-color: rgba(255, 255, 255, 0.25); }
+headerbar.selection-mode button:active, .nemo-window .selection-mode.primary-toolbar button:active, headerbar.selection-mode button:checked, .nemo-window .selection-mode.primary-toolbar button:checked {
+  text-shadow: none; }
 headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child), .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child), headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):disabled {
   margin-right: 1px; }
 headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:disabled {
@@ -3207,7 +3221,9 @@ decoration {
     border-radius: 5px; }
   .ssd decoration {
     border-radius: 5px 5px 0 0;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1); }
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.1); }
+    .ssd decoration:backdrop {
+      box-shadow: 0 3px 5px 0 transparent, 0 8px 8px 0 transparent, 0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.1); }
     .ssd decoration.maximized {
       border-radius: 0; }
   .csd.popup decoration {
@@ -3225,19 +3241,6 @@ decoration {
     background-color: rgba(229, 229, 229, 0.95);
     box-shadow: none; }
 
-headerbar.default-decoration button.titlebutton,
-.titlebar.default-decoration button.titlebutton {
-  min-width: 24px;
-  min-height: 24px;
-  margin: 0;
-  padding: 0; }
-headerbar.close, headerbar.maximize, headerbar.minimize, headerbar.restore,
-.titlebar.close,
-.titlebar.maximize,
-.titlebar.minimize,
-.titlebar.restore {
-  min-width: 20px;
-  min-height: 20px; }
 headerbar button.titlebutton,
 .titlebar button.titlebutton {
   min-width: 26px;
