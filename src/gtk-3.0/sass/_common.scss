@@ -2397,7 +2397,7 @@ scale {
 
     &:active {
       background-clip: border-box;
-      background-color: darken($selected_fg_color, 3%);
+      background-color: $selected_fg_color;
       border-color: $_slider_border;
       box-shadow: $button_shadow_1;
     }
@@ -2792,10 +2792,10 @@ row {
 
   button {
     @extend %undecorated_button;
-    padding: 4px;
+    padding: 0;
     margin: 0 0 0 0;
-    min-height: 16px;
-    min-width: 16px;
+    min-height: 24px;
+    min-width: 24px;
     border: none;
     border-radius: 100px;
     outline-offset: -1px;
@@ -3175,9 +3175,9 @@ infobar {
     border-color: transparentize($selected_fg_color, 0.2);
   }
   &:active, &:active:hover, &:checked {
-    color: $selected_bg_color;
-    background-color: $selected_fg_color;
-    border-color: $selected_fg_color;
+    color: $selected_fg_color;
+    background-color: transparentize($selected_fg_color, 0.6);
+    border-color: transparentize($selected_fg_color, 0.2);
   }
   &:disabled {
     &, label { color: transparentize($selected_fg_color, 0.5); }

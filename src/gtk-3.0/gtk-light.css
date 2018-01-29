@@ -1135,8 +1135,6 @@ headerbar.selection-mode button, .nemo-window .selection-mode.primary-toolbar bu
   background-color: rgba(255, 255, 255, 0); }
 headerbar.selection-mode button:hover, .nemo-window .selection-mode.primary-toolbar button:hover {
   background-color: rgba(255, 255, 255, 0.25); }
-headerbar.selection-mode button:active, .nemo-window .selection-mode.primary-toolbar button:active, headerbar.selection-mode button:checked, .nemo-window .selection-mode.primary-toolbar button:checked {
-  text-shadow: none; }
 headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child), .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child), headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):disabled {
   margin-right: 1px; }
 headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:disabled {
@@ -2338,7 +2336,7 @@ scale {
       box-shadow: 0px 1px 2px 0px rgba(16, 16, 16, 0.1), 0px 2px 2px 0px rgba(16, 16, 16, 0.05); }
     scale slider:active {
       background-clip: border-box;
-      background-color: #f7f7f7;
+      background-color: #ffffff;
       border-color: transparent;
       box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.04), 0px 1px 2px 0px rgba(16, 16, 16, 0.01); }
     scale slider:disabled {
@@ -2839,10 +2837,10 @@ row.activatable:selected.has-open-popup, row.activatable:selected:hover {
   .app-notification border {
     border: none; }
   .app-notification button {
-    padding: 4px;
+    padding: 0;
     margin: 0 0 0 0;
-    min-height: 16px;
-    min-width: 16px;
+    min-height: 24px;
+    min-width: 24px;
     border: none;
     border-radius: 100px;
     outline-offset: -1px;
@@ -3085,9 +3083,9 @@ row:selected button:hover, infobar.info button:hover, infobar.question button:ho
   background-color: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.8); }
 headerbar.selection-mode button:active, .nemo-window .selection-mode.primary-toolbar button:active, headerbar.selection-mode button:checked, .nemo-window .selection-mode.primary-toolbar button:checked, row:selected button:active, infobar.info button:active, infobar.question button:active, infobar.warning button:active, infobar.error button:active, .nautilus-window .floating-bar button:active, headerbar.selection-mode button:hover:active, .nemo-window .selection-mode.primary-toolbar button:hover:active, headerbar.selection-mode button:hover:checked, .nemo-window .selection-mode.primary-toolbar button:hover:checked, row:selected button:active:hover, infobar.info button:active:hover, infobar.question button:active:hover, infobar.warning button:active:hover, infobar.error button:active:hover, .nautilus-window .floating-bar button:active:hover, row:selected button:checked, infobar.info button:checked, infobar.question button:checked, infobar.warning button:checked, infobar.error button:checked, .nautilus-window .floating-bar button:checked {
-  color: #0e6bff;
-  background-color: #ffffff;
-  border-color: #ffffff; }
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.8); }
 row:selected button:disabled, infobar.info button:disabled, infobar.question button:disabled, infobar.warning button:disabled, infobar.error button:disabled, .nautilus-window .floating-bar button:disabled {
   background-color: rgba(255, 255, 255, 0);
   border-color: rgba(255, 255, 255, 0.4); }
