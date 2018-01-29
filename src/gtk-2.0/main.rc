@@ -37,8 +37,8 @@ style "default" {
   GtkScrolledWindow::scrollbar-spacing = 0
   GtkScrolledWindow::scrollbars-within-bevel = 1
 
-  GtkScale::slider_length = 15
-  GtkScale::slider_width = 15
+  GtkScale::slider_length = 20
+  GtkScale::slider_width = 20
   GtkScale::trough-side-details = 1
 
   GtkProgressBar::min-horizontal-bar-height = 8

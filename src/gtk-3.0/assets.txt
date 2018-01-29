@@ -62,3 +62,6 @@ radio-unchecked-dark
 radio-unchecked-insensitive-dark
 radio-mixed-dark
 radio-mixed-insensitive-dark
+
+combobox-arrow
+

@@ -580,15 +580,6 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#selected_bg_color"
-       id="linearGradient5047"
-       x1="247.50018"
-       y1="-27.637819"
-       x2="247.50018"
-       y2="-12.637819"
-       gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#selected_bg_color"
        id="linearGradient5049"
        x1="-54.637817"
        y1="-235.00018"
@@ -711,15 +702,6 @@
        y1="32.447998"
        x2="25.121305"
        y2="45.447994"
-       gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#selected_bg_color"
-       id="linearGradient5050"
-       x1="247.50018"
-       y1="-27.637819"
-       x2="247.50018"
-       y2="-12.637819"
        gradientUnits="userSpaceOnUse" />
     <linearGradient
        inkscape:collect="always"
@@ -990,6 +972,51 @@
        x2="468"
        y2="-172.63782"
        gradientUnits="userSpaceOnUse" />
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Drop Shadow"
+       id="filter1954">
+      <feFlood
+         flood-opacity="0.176471"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood1944" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite1946" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="2"
+         result="blur"
+         id="feGaussianBlur1948" />
+      <feOffset
+         dx="0"
+         dy="1"
+         result="offset"
+         id="feOffset1950" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite1952" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter1986"
+       x="-0.096"
+       width="1.192"
+       y="-0.096"
+       height="1.192">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.56"
+         id="feGaussianBlur1988" />
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -998,9 +1025,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.656854"
-     inkscape:cx="408.39262"
-     inkscape:cy="287.70155"
+     inkscape:zoom="7.9999996"
+     inkscape:cx="256.47287"
+     inkscape:cy="141.01163"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1013,7 +1040,7 @@
      inkscape:snap-nodes="true"
      inkscape:snap-bbox="true"
      inkscape:bbox-paths="true"
-     inkscape:snap-global="true"
+     inkscape:snap-global="false"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:bbox-nodes="true"
@@ -4986,20 +5013,44 @@
          id="trough-progressbar_v2"
          style="opacity:1;fill:#cecece;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
-    <circle
-       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#cecece;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+    <g
        id="slider"
-       cx="228.50018"
-       cy="-20.137819"
-       r="7"
-       inkscape:label="#path5834" />
-    <circle
-       style="opacity:1;fill:url(#linearGradient5047);fill-opacity:1;stroke:url(#linearGradient5050);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:label="#g1994">
+      <circle
+         transform="matrix(1.0733227,0,0,1.0733227,-16.754273,1.7994136)"
+         style="opacity:0.25;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter1986)"
+         id="circle1956"
+         cx="228.50018"
+         cy="-19.116373"
+         r="7"
+         inkscape:label="#path5834" />
+      <circle
+         inkscape:label="#path5834"
+         r="7"
+         cy="-20.137819"
+         cx="228.50018"
+         id="slider-1"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#f9fafb;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <g
        id="slider-prelight"
-       cx="247.50018"
-       cy="-20.137819"
-       r="7"
-       inkscape:label="#path5834-3" />
+       inkscape:label="#g1998">
+      <circle
+         inkscape:label="#path5834"
+         r="7"
+         cy="-19.116373"
+         cx="228.50018"
+         id="circle1990"
+         style="opacity:0.15;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter1986)"
+         transform="matrix(1.201348,0,0,1.201348,-27.09296,4.5561513)" />
+      <circle
+         inkscape:label="#path5834-3"
+         r="7"
+         cy="-20.137819"
+         cx="247.41528"
+         id="slider-prelight-1"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#f9fafb;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
     <g
        id="slider-insensitive"
        transform="translate(4,-283.63782)"
@@ -5008,14 +5059,8 @@
          r="7"
          cy="263.5"
          cx="262.5"
-         id="path5834-5-4"
-         style="opacity:1;fill:#f9fafb;fill-opacity:1;stroke:#f9fafb;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <circle
-         r="7"
-         cy="263.5"
-         cx="262.5"
          id="path5834-5"
-         style="opacity:0.55;fill:#ffffff;fill-opacity:1;stroke:#cecece;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+         style="opacity:0.55;fill:#ececec;fill-opacity:1;stroke:#e9e9e9;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
     <g
        id="trough-horizontal"

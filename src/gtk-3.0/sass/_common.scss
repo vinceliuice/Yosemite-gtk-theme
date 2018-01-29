@@ -287,6 +287,9 @@ entry {
 
   .linked.vertical > &,
   .linked.vertical > &:focus { @extend %linked_vertical; }
+
+  .linked:not(.vertical) > & + button.combo { padding-left: 0; }
+  .linked.vertical > & + button.combo { padding: 0; }
 }
 
 treeview entry {
@@ -324,7 +327,7 @@ $_dot_color: $selected_bg_color;
 
 button {
   min-height: 26px;
-  min-width: 22px;
+  min-width: 16px;
   transition: $button_transition;
   border: 1px solid;
   border-radius: $bt_radius;
@@ -754,7 +757,7 @@ modelbutton.flat {
   @extend %undecorated_button;
 
   &:hover { background-color: if($variant=='light', mix($fg_color,$bg_color,5%), mix($fg_color,$bg_color,10%)); }
-  &:active, &:selected { &, arrow { @include button(active); } }
+  &:active, &:selected { &, arrow { @include button(header-checked); } }
   &:checked { color: $fg_color; }
   &:disabled { color: $insensitive_fg_color; }
 
@@ -873,13 +876,23 @@ spinbutton {
 combobox {
   button.combo {
     min-width: 0;       // otherwise the arrow placement is unsymmetric
-    padding-left: 8px;  //
-    padding-right: 8px;  //
+    padding-left: 8px;
+    padding-right: 8px;
   }
   arrow {
-    -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+    -gtk-icon-source: -gtk-scaled(
+                       url("assets/combobox-arrow.png"),
+                       url("assets/combobox-arrow@2.png"));
     min-height: 16px;
     min-width: 16px;
+    padding: 0 1px;
+    margin: -1px -9px -1px -1px;
+    border-radius: 0 $bt_radius $bt_radius 0;
+    color: $selected_fg_color;
+    border: 1px solid if($variant=='light', #358ffc, #686868);
+    background-color: transparent;
+    background-image: if($variant=='light', linear-gradient( 0deg, #067dff 0%, #6bb3fa 100%),
+                                            linear-gradient( 0deg, #686868 0%, #686868 100%));
   }
 
   &:drop(active) button.combo { @extend button:drop(active); }
@@ -887,12 +900,15 @@ combobox {
   .linked:not(.vertical) > & > box > button.combo {
     // the combobox is a composite widget so the way we do button linking doesn't
     // work, special case needed.
+
+  arrow { border-radius: 0; }
+
     &:dir(ltr),
     &:dir(rtl) { @extend %linked_middle; } // specificity bump
   }
 
   .linked:not(.vertical) > &:first-child > box > button.combo { @extend %linked:first-child; }
-  .linked:not(.vertical) > &:last-child > box > button.combo { @extend %linked:last-child; }
+  .linked:not(.vertical) > &:last-child > box > button.combo { @extend %linked:last-child; arrow { border-radius: 0 $bt_radius $bt_radius 0; }}
   .linked:not(.vertical) > &:only-child > box > button.combo { @extend %linked:only-child; }
 
   .linked.vertical > & > box > button.combo { @extend %linked_vertical_middle; }
@@ -1180,6 +1196,7 @@ headerbar {
 
   // Headerbar Entries
   entry {
+    min-height: 22px;
     @include entry(header-normal);
 
     &:backdrop { opacity: 0.85; }
@@ -1789,6 +1806,8 @@ menu,
     background-color: $_menu_bg;
     border-radius: 0;
     border: 1px solid transparent;
+    background-image: none;
+    color: $fg_color;
 
     &.top {
       margin-top: -18px;
@@ -2761,27 +2780,30 @@ row {
 // App Notifications
 //
 .app-notification {
-  padding: 10px;
+  padding: 16px;
+  margin: 0 8px 8px 8px;
   color: $osd_fg_color;
-  background-color: gtkalpha($dark_sidebar_bg, 0.9);
-  background-clip: border-box;
+  background-color: gtkalpha($button_bg, 0.9);
   border-radius: 0 0 $bt_radius $bt_radius;
-  border-width: 0 1px 1px 1px;
-  border-style: solid;
-  border-color: $bar_border;
+  border-style: none;
+  box-shadow: $switch_shadow_1;
 
   border { border: none; }
 
   button {
-    @include button(osd);
-    &.flat {
-      @extend %undecorated_button;
-      border-color: transparentize($selected_bg_color, 1);
-      &:disabled { @extend %undecorated_button; }
-    }
-    &:hover { @include button(osd-hover); }
-    &:active, &:checked { @include button(osd-active); background-clip: padding-box; }
-    &:disabled { @include button(osd-insensitive);
+    @extend %undecorated_button;
+    padding: 4px;
+    margin: 0 0 0 0;
+    min-height: 16px;
+    min-width: 16px;
+    border: none;
+    border-radius: 100px;
+    outline-offset: -1px;
+    -gtk-outline-radius: 100px;
+
+    &:hover { @include button(flat-hover); }
+    &:active, &:checked { @include button(flat-active); }
+    &:disabled { @include button(flat-insensitive);
     }
   }
 }
@@ -2864,6 +2886,7 @@ messagedialog { // Message Dialog styling
     }
 
     .dialog-action-area button:not(.suggested-action):not(.destructive-action) {
+      transition: $button_transition;
 
       &:hover {
         @include button(flat-hover);
@@ -3367,8 +3390,8 @@ decoration {
   transition: $shadow_transition;
   border-radius: if($darker=='false' and $variant=='light', $bt_radius $bt_radius 0 0, $bt_radius $bt_radius 0 0);
   border-width: 0;
-  box-shadow: 0 3px 5px 0 if($variant == 'light', opacify($_wm_border, 0.1), opacify($_wm_border, 0.05)),
-              0 8px 8px 0 if($variant == 'light', opacify($_wm_border, 0.1), opacify($_wm_border, 0.05)),
+  box-shadow: 0 5px 5px 0 if($variant == 'light', opacify($_wm_border, 0.15), opacify($_wm_border, 0.1)),
+              0 15px 15px 0 if($variant == 'light', opacify($_wm_border, 0.15), opacify($_wm_border, 0.1)),
               0 0 0 1px $borders_color;
 
   // this is used for the resize cursor area
@@ -3377,14 +3400,14 @@ decoration {
   &:backdrop {
     // the transparent shadow here is to enforce that the shadow extents don't
     // change when we go to backdrop, to prevent jumping windows
-    box-shadow: 0 3px 5px 0 transparent, 0 8px 8px 0 transparent,
-                0 3px 3px 0 if($variant == 'light', opacify($_wm_border, 0.06), opacify($_wm_border, 0.03)),
+    box-shadow: 0 5px 5px 0 transparent, 0 15px 15px 0 transparent,
+                0 3px 3px 0 if($variant == 'light', opacify($_wm_border, 0.15), opacify($_wm_border, 0.1)),
                 0 0 0 1px $borders_color;
   }
   .fullscreen &,
   .tiled & {
     border-radius: 0;
-    box-shadow: 0 3px 3px 0 if($variant == 'light', opacify($_wm_border, 0.06), opacify($_wm_border, 0.03));
+    box-shadow: 0 3px 3px 0 if($variant == 'light', opacify($_wm_border, 0.15), opacify($_wm_border, 0.1));
   }
   .popup & {
 //   box-shadow: none;
@@ -3393,16 +3416,6 @@ decoration {
   // server-side decorations as used by mutter
   .ssd & {
     border-radius: $bt_radius $bt_radius 0 0;
-    box-shadow: 0 3px 5px 0 if($variant == 'light', opacify($_wm_border, 0.1), opacify($_wm_border, 0.05)),
-                0 8px 8px 0 if($variant == 'light', opacify($_wm_border, 0.1), opacify($_wm_border, 0.05)),
-                0 0 0 1px $borders_color;
-
-    &:backdrop {
-      box-shadow: 0 3px 5px 0 transparent, 0 8px 8px 0 transparent,
-                  0 3px 3px 0 if($variant == 'light', opacify($_wm_border, 0.06), opacify($_wm_border, 0.03)),
-                  0 0 0 1px $borders_color;
-  }
-
     &.maximized { border-radius: 0; }
   }
   .csd.popup & {
