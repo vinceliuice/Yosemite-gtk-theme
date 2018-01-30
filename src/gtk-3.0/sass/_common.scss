@@ -1264,6 +1264,10 @@ headerbar {
     &:disabled { @include button(header-insensitive); }
     &:disabled:active, &:disabled:checked { @include button(header-insensitive-active); }
 //    &.text-button.image-button label { padding-left: 6px; padding-right: 6px; }
+
+    &.flat {
+      @include button(undecorated);
+      }
   }
 
   &.selection-mode button {
@@ -3352,11 +3356,10 @@ colorchooser .popover.osd { border-radius: $bt_radius; }
 button.circular,
 button.circular-button {
   padding: 0;
-  min-width: 16px;
+  min-width: 24px;
   min-height: 24px;
-  padding: 2px 6px;
-  border-radius: 50%;
-  -gtk-outline-radius: 50%;
+  border-radius: 100%;
+  -gtk-outline-radius: 100%;
 
   label { padding: 0; }
 }
@@ -3402,7 +3405,7 @@ decoration {
               0 0 0 1px $borders_color;
 
   // this is used for the resize cursor area
-  margin: 6px;
+  margin: 4px;
 
   &:backdrop {
     // the transparent shadow here is to enforce that the shadow extents don't
@@ -3422,7 +3425,9 @@ decoration {
   }
   // server-side decorations as used by mutter
   .ssd & {
+    margin: -3px;
     border-radius: $bt_radius $bt_radius 0 0;
+    box-shadow: 0 0 3px 0 if($variant == 'light', opacify($_wm_border, 0.15), opacify($_wm_border, 0.1)), 0 0 0 1px $borders_color;
     &.maximized { border-radius: 0; }
   }
   .csd.popup & {

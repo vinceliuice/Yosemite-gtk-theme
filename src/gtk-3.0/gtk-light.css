@@ -1127,6 +1127,14 @@ headerbar button,
     border: none;
     background-color: rgba(175, 175, 175, 0.65);
     box-shadow: none; }
+  headerbar button.flat,
+  .nemo-window .primary-toolbar button.flat,
+  headerbar button.sidebar-button,
+  .nemo-window .primary-toolbar button.sidebar-button {
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none; }
 headerbar.selection-mode button, .nemo-window .selection-mode.primary-toolbar button, headerbar.selection-mode button.flat, .nemo-window .selection-mode.primary-toolbar button.flat, headerbar.selection-mode button.sidebar-button, .nemo-window .selection-mode.primary-toolbar button.sidebar-button {
   border-color: transparent;
   background-color: transparent;
@@ -3197,11 +3205,10 @@ popover.background.touch-selection {
 button.circular, button.nautilus-circular-button.image-button,
 button.circular-button {
   padding: 0;
-  min-width: 16px;
+  min-width: 24px;
   min-height: 24px;
-  padding: 2px 6px;
-  border-radius: 50%;
-  -gtk-outline-radius: 50%; }
+  border-radius: 100%;
+  -gtk-outline-radius: 100%; }
   button.circular label, button.nautilus-circular-button.image-button label,
   button.circular-button label {
     padding: 0; }
@@ -3230,7 +3237,7 @@ decoration {
   border-radius: 5px 5px 0 0;
   border-width: 0;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25), 0 15px 15px 0 rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.11);
-  margin: 6px; }
+  margin: 4px; }
   decoration:backdrop {
     box-shadow: 0 5px 5px 0 transparent, 0 15px 15px 0 transparent, 0 3px 3px 0 rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.11); }
   .fullscreen decoration, .tiled decoration {
@@ -3239,7 +3246,9 @@ decoration {
   .popup decoration {
     border-radius: 5px; }
   .ssd decoration {
-    border-radius: 5px 5px 0 0; }
+    margin: -3px;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.11); }
     .ssd decoration.maximized {
       border-radius: 0; }
   .csd.popup decoration {
