@@ -1086,8 +1086,7 @@ headerbar button,
     border: none;
     background-color: #fafafa;
     box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.12), 0px 1px 2px 0px rgba(16, 16, 16, 0.06);
-    transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transition-duration: 300ms; }
+    transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
   headerbar button:checked,
   .nemo-window .primary-toolbar button:checked {
     color: #ffffff;
@@ -1096,7 +1095,9 @@ headerbar button,
     background-image: none;
     text-shadow: 0 -1px rgba(255, 255, 255, 0.04), -1px 0px rgba(32, 32, 32, 0.05), 1px 0px rgba(32, 32, 32, 0.05), 0px 1px rgba(32, 32, 32, 0.3), 0px 2px rgba(32, 32, 32, 0.05);
     box-shadow: none;
-    background-clip: border-box; }
+    background-clip: border-box;
+    transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition-duration: 300ms; }
   headerbar button:active,
   .nemo-window .primary-toolbar button:active {
     color: #ffffff;
@@ -1135,6 +1136,8 @@ headerbar.selection-mode button, .nemo-window .selection-mode.primary-toolbar bu
   background-color: rgba(255, 255, 255, 0); }
 headerbar.selection-mode button:hover, .nemo-window .selection-mode.primary-toolbar button:hover {
   background-color: rgba(255, 255, 255, 0.25); }
+headerbar.selection-mode button:active, .nemo-window .selection-mode.primary-toolbar button:active, headerbar.selection-mode button:checked, .nemo-window .selection-mode.primary-toolbar button:checked {
+  text-shadow: none; }
 headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child), .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child), headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):disabled {
   margin-right: 1px; }
 headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:disabled {
@@ -1224,9 +1227,7 @@ headerbar .linked:not(.vertical).path-bar > button,
     color: rgba(40, 32, 32, 0.8);
     border: none;
     background-color: #fafafa;
-    box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.12), 0px 1px 2px 0px rgba(16, 16, 16, 0.06);
-    transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transition-duration: 300ms; }
+    box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.12), 0px 1px 2px 0px rgba(16, 16, 16, 0.06); }
   headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active,
   headerbar .linked:not(.vertical).path-bar > button:active,
   .nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:active {
@@ -1236,8 +1237,6 @@ headerbar .linked:not(.vertical).path-bar > button,
     background-image: none;
     text-shadow: 0 -1px rgba(255, 255, 255, 0.04), -1px 0px rgba(32, 32, 32, 0.05), 1px 0px rgba(32, 32, 32, 0.05), 0px 1px rgba(32, 32, 32, 0.3), 0px 2px rgba(32, 32, 32, 0.05);
     box-shadow: none;
-    transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transition-duration: 300ms;
     box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.12), 0px 1px 2px 0px rgba(16, 16, 16, 0.06); }
   headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked,
   headerbar .linked:not(.vertical).path-bar > button:checked,
@@ -1415,9 +1414,7 @@ headerbar spinbutton:not(.vertical) button, .nemo-window .primary-toolbar spinbu
   color: rgba(40, 32, 32, 0.8);
   border: none;
   background-color: #fafafa;
-  box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.12), 0px 1px 2px 0px rgba(16, 16, 16, 0.06);
-  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition-duration: 300ms; }
+  box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.12), 0px 1px 2px 0px rgba(16, 16, 16, 0.06); }
 headerbar spinbutton:not(.vertical) button:hover, .nemo-window .primary-toolbar spinbutton:not(.vertical) button:hover {
   background-color: white; }
 headerbar spinbutton:not(.vertical) button:active, .nemo-window .primary-toolbar spinbutton:not(.vertical) button:active, headerbar spinbutton:not(.vertical) button:checked, .nemo-window .primary-toolbar spinbutton:not(.vertical) button:checked {
@@ -1426,9 +1423,7 @@ headerbar spinbutton:not(.vertical) button:active, .nemo-window .primary-toolbar
   background-color: #afafaf;
   background-image: none;
   text-shadow: 0 -1px rgba(255, 255, 255, 0.04), -1px 0px rgba(32, 32, 32, 0.05), 1px 0px rgba(32, 32, 32, 0.05), 0px 1px rgba(32, 32, 32, 0.3), 0px 2px rgba(32, 32, 32, 0.05);
-  box-shadow: none;
-  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition-duration: 300ms; }
+  box-shadow: none; }
 headerbar spinbutton:not(.vertical) button:disabled, .nemo-window .primary-toolbar spinbutton:not(.vertical) button:disabled {
   color: rgba(40, 32, 32, 0.4); }
 headerbar spinbutton:not(.vertical) > button + button, .nemo-window .primary-toolbar spinbutton:not(.vertical) > button + button {
@@ -3278,9 +3273,7 @@ headerbar button.titlebutton,
     color: rgba(40, 32, 32, 0.8);
     border: none;
     background-color: #fafafa;
-    box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.12), 0px 1px 2px 0px rgba(16, 16, 16, 0.06);
-    transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transition-duration: 300ms; }
+    box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.12), 0px 1px 2px 0px rgba(16, 16, 16, 0.06); }
   headerbar button.titlebutton:active, headerbar button.titlebutton:checked,
   .titlebar button.titlebutton:active,
   .titlebar button.titlebutton:checked {
@@ -3289,9 +3282,7 @@ headerbar button.titlebutton,
     background-color: #afafaf;
     background-image: none;
     text-shadow: 0 -1px rgba(255, 255, 255, 0.04), -1px 0px rgba(32, 32, 32, 0.05), 1px 0px rgba(32, 32, 32, 0.05), 0px 1px rgba(32, 32, 32, 0.3), 0px 2px rgba(32, 32, 32, 0.05);
-    box-shadow: none;
-    transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transition-duration: 300ms; }
+    box-shadow: none; }
   headerbar button.titlebutton.close, headerbar button.titlebutton.maximize, headerbar button.titlebutton.minimize, headerbar button.titlebutton.restore,
   .titlebar button.titlebutton.close,
   .titlebar button.titlebutton.maximize,
@@ -3455,18 +3446,14 @@ popover.background label.nautilus-canvas-item.separator, headerbar .nautilus-can
     color: rgba(40, 32, 32, 0.8);
     border: none;
     background-color: #fafafa;
-    box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.12), 0px 1px 2px 0px rgba(16, 16, 16, 0.06);
-    transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transition-duration: 300ms; }
+    box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.12), 0px 1px 2px 0px rgba(16, 16, 16, 0.06); }
   100% {
     color: #ffffff;
     border: none;
     background-color: #afafaf;
     background-image: none;
     text-shadow: 0 -1px rgba(255, 255, 255, 0.04), -1px 0px rgba(32, 32, 32, 0.05), 1px 0px rgba(32, 32, 32, 0.05), 0px 1px rgba(32, 32, 32, 0.3), 0px 2px rgba(32, 32, 32, 0.05);
-    box-shadow: none;
-    transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transition-duration: 300ms; } }
+    box-shadow: none; } }
 .nautilus-operations-button-needs-attention {
   animation: needs_attention_keyframes 2s ease-in-out; }
 

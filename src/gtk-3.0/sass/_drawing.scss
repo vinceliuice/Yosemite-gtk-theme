@@ -272,8 +272,6 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
     border: none;
     background-color: $header_button_hover_bg;
     box-shadow: $header_shadow_1;
-    transition: $button_transition;
-    transition-duration: 300ms;
   }
 
   @else if $t==header-active {
@@ -286,8 +284,6 @@ $animation_1: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
     background-image: none;
     text-shadow: if($variant=='light', $text_shadow, none);
     box-shadow: none;
-    transition: $button_transition;
-    transition-duration: 300ms;
   }
 
   @else if $t==header-checked {

@@ -1245,13 +1245,20 @@ headerbar {
     min-width: 28px;
     @include button(header-normal);
     &:backdrop { opacity: 0.7; box-shadow: $header_shadow_2; }
-    &:hover { @include button(header-hover); }
+    &:hover {
+      @include button(header-hover);
+      transition: $button_transition;
+      }
     &:checked {
       @include button(header-checked);
       background-clip: if($darker=='false' and $variant=='light', border-box, padding-box);
+      transition: $button_transition;
+      transition-duration: 300ms;
     }
     &:active {
       @include button(header-active);
+      transition: $button_transition;
+      transition-duration: 300ms;
       background-clip: if($darker=='false' and $variant=='light', border-box, padding-box);
     }
     &:disabled { @include button(header-insensitive); }
