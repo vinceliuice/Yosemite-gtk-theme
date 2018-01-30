@@ -3779,7 +3779,7 @@ button.documents-favorite:active:hover {
 .documents-entry-tag, .photos-entry-tag {
   color: #ffffff;
   background: #0062FF;
-  border-radius: 2px;
+  border-radius: 3px;
   border-width: 0;
   margin: 2px;
   padding: 4px; }
@@ -3789,6 +3789,10 @@ button.documents-favorite:active:hover {
   .documents-entry-tag:active, .photos-entry-tag:active {
     color: #ffffff;
     background: #005aeb; }
+  .documents-entry-tag.button, .button.photos-entry-tag {
+    box-shadow: none;
+    border: none;
+    background-color: transparent; }
 
 .content-view.document-page {
   border-style: solid;
