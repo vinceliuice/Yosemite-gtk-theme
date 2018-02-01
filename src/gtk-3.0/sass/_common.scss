@@ -3416,7 +3416,7 @@ decoration {
   border-radius: if($darker=='false' and $variant=='light', $bt_radius $bt_radius 0 0, $bt_radius $bt_radius 0 0);
   border-width: 0;
   box-shadow: 0 5px 5px 0 if($variant == 'light', opacify($_wm_border, 0.15), opacify($_wm_border, 0.1)),
-              0 15px 15px 0 if($variant == 'light', opacify($_wm_border, 0.15), opacify($_wm_border, 0.1)),
+              0 8px 15px 0 if($variant == 'light', opacify($_wm_border, 0.15), opacify($_wm_border, 0.1)),
               0 0 0 1px $borders_color;
 
   // this is used for the resize cursor area
@@ -3425,7 +3425,7 @@ decoration {
   &:backdrop {
     // the transparent shadow here is to enforce that the shadow extents don't
     // change when we go to backdrop, to prevent jumping windows
-    box-shadow: 0 5px 5px 0 transparent, 0 15px 15px 0 transparent,
+    box-shadow: 0 5px 5px 0 transparent, 0 8px 15px 0 transparent,
                 0 3px 3px 0 if($variant == 'light', opacify($_wm_border, 0.15), opacify($_wm_border, 0.1)),
                 0 0 0 1px $borders_color;
   }
@@ -3440,9 +3440,9 @@ decoration {
   }
   // server-side decorations as used by mutter
   .ssd & {
-    margin: -3px;
+    margin: -5px;
     border-radius: $bt_radius $bt_radius 0 0;
-    box-shadow: 0 0 3px 0 if($variant == 'light', opacify($_wm_border, 0.15), opacify($_wm_border, 0.1)), 0 0 0 1px $borders_color;
+    box-shadow: 0 0 5px 0 if($variant == 'light', opacify($_wm_border, 0.15), opacify($_wm_border, 0.1)), 0 0 0 1px $borders_color;
     &.maximized { border-radius: 0; }
   }
   .csd.popup & {
