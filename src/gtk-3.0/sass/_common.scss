@@ -124,7 +124,7 @@ label {
   }
 
   &:disabled {
-    color: $insensitive_fg_color;
+//    color: $insensitive_fg_color;
     selection { @extend %selected_items:disabled; }
   }
 }
@@ -1399,7 +1399,7 @@ headerbar {
         box-shadow: none;
       }
       &.flat:disabled,
-      &:disabled { @include button(header-insensitive); box-shadow: none; }
+      &:disabled { @include button(insensitive); box-shadow: none; }
     }
     button.#{$b_type}:backdrop,
     button.#{$b_type}:backdrop {
@@ -1730,9 +1730,6 @@ menubar,
       color: transparentize($header_fg, 0.6);
       border-color: transparent;
     }
-
-    label { &:disabled { color: transparentize($header_fg, 0.6); } }
-
   }
 }
 
@@ -2272,6 +2269,8 @@ checkbutton, radiobutton {
     &.text-button {
       padding: 2px 0;
       outline-offset: 0;
+      &:hover { color: darken($fg_color, 15%); }
+      &:disabled { color: $insensitive_fg_color; }
     }
 
   label:not(:only-child) {
