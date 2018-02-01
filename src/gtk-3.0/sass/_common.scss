@@ -194,7 +194,7 @@ entry {
 
   caret-color: currentColor;
   border-radius: $bt_radius;
-  transition: all 200ms $ease-out-quad;
+  transition: $transition_2;
 
   &.search { border-radius: 100px; }
 

@@ -127,7 +127,7 @@ entry {
   padding: 2px 8px;
   caret-color: currentColor;
   border-radius: 5px;
-  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
   color: #dedede;
   border-color: rgba(255, 255, 255, 0.12);
   background-color: #242424; }
@@ -1030,7 +1030,7 @@ headerbar entry, .nemo-window .primary-toolbar entry {
     opacity: 0.85; }
   headerbar entry:focus, .nemo-window .primary-toolbar entry:focus {
     border: none;
-    box-shadow: 0 0 0 2px #66a1ff, inset 0 0 0 1px #66a1ff;
+    box-shadow: 0px 1px 1px 0px transparent, 0px 1px 2px 0px transparent, 0 0 0 2px #66a1ff, inset 0 0 0 1px #66a1ff;
     background-clip: padding-box; }
     headerbar entry:focus image, .nemo-window .primary-toolbar entry:focus image {
       color: #0062FF; }
@@ -1461,7 +1461,7 @@ headerbar combobox > .linked > button.combo, .nemo-window .primary-toolbar combo
     color: inherit; }
   headerbar combobox > .linked > button.combo:hover, .nemo-window .primary-toolbar combobox > .linked > button.combo:hover {
     border: none;
-    box-shadow: 0 0 0 2px #66a1ff, inset 0 0 0 1px #66a1ff;
+    box-shadow: 0px 1px 1px 0px transparent, 0px 1px 2px 0px transparent, 0 0 0 2px #66a1ff, inset 0 0 0 1px #66a1ff;
     box-shadow: none; }
   headerbar combobox > .linked > button.combo:disabled, .nemo-window .primary-toolbar combobox > .linked > button.combo:disabled {
     color: rgba(225, 219, 219, 0.35);
@@ -4051,7 +4051,7 @@ panel-toplevel.background button:not(#tasklist-button), .xfce4-panel.panel butto
     color: inherit; }
   .marlin-pathbar.pathbar:focus {
     border: none;
-    box-shadow: 0 0 0 2px #66a1ff, inset 0 0 0 1px #66a1ff; }
+    box-shadow: 0px 1px 1px 0px transparent, 0px 1px 2px 0px transparent, 0 0 0 2px #66a1ff, inset 0 0 0 1px #66a1ff; }
   .marlin-pathbar.pathbar:disabled {
     color: rgba(225, 219, 219, 0.35);
     border-style: none;
