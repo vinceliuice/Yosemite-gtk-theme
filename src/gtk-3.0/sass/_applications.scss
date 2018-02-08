@@ -944,9 +944,33 @@ panel-toplevel.background {
         min-height: 0;
         min-width: 0;
         padding: 0;
-        margin: 0;
+        margin-right: 6px;
+        -gtk-icon-shadow: none;
         @extend %selected-button;
     }
+}
+
+ /*********
+  * Geary *
+  *********/
+
+.geary-titlebar-left {
+  // remove unexpected "hardcoded" vertical separator
+  separator { opacity: 0; }
+
+  > button { // button
+    min-width: 22px;
+  }
+}
+
+.geary-titlebar-right {
+  // stop double-shadows on right paned header-bar
+  separator { opacity: 0; }
+  box-shadow: none;
+
+  > button { // button
+    min-width: 22px;
+  }
 }
 
 // Elementary Apps

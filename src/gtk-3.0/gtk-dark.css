@@ -1068,7 +1068,7 @@ headerbar entry, .nemo-window .primary-toolbar entry {
       color: #FC4138; }
 headerbar button,
 .nemo-window .primary-toolbar button {
-  min-width: 28px;
+  min-width: 22px;
   color: rgba(225, 219, 219, 0.8);
   outline-offset: -3px;
   border: none;
@@ -4040,7 +4040,23 @@ panel-toplevel.background button:not(#tasklist-button), .xfce4-panel.panel butto
     min-height: 0;
     min-width: 0;
     padding: 0;
-    margin: 0; }
+    margin-right: 6px;
+    -gtk-icon-shadow: none; }
+
+/*********
+ * Geary *
+ *********/
+.geary-titlebar-left separator {
+  opacity: 0; }
+.geary-titlebar-left > button {
+  min-width: 22px; }
+
+.geary-titlebar-right {
+  box-shadow: none; }
+  .geary-titlebar-right separator {
+    opacity: 0; }
+  .geary-titlebar-right > button {
+    min-width: 22px; }
 
 .marlin-pathbar.pathbar {
   border-radius: 3px;
