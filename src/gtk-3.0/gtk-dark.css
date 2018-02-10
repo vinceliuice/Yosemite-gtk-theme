@@ -4207,10 +4207,10 @@ window.background:not(.csd) > menu > menuitem > label:disabled {
   #MozillaGtkWidget.background > widget separator {
     background-color: rgba(255, 255, 255, 0.12); }
   #MozillaGtkWidget.background > widget > scrolledwindow > textview {
-    background-color: #666666; }
+    background-color: #474747; }
     #MozillaGtkWidget.background > widget > scrolledwindow > textview text {
       background-color: transparent;
-      color: #fdfdfd; }
+      color: #aaaaaa; }
 
 /****************
  * Libre-Office *
