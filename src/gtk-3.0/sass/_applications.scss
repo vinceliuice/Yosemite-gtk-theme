@@ -73,6 +73,16 @@ terminal-window,
 }
 
 .nautilus-window notebook,
+.nautilus-window notebook > stack {
+    border-radius: 0 0 $wm_radius 0;
+}
+
+.nautilus-window.maximized notebook,
+.nautilus-window.maximized notebook > stack {
+    border-radius: 0 0 0 0;
+}
+
+.nautilus-window notebook,
 .nautilus-window notebook > stack:not(:only-child) searchbar {
     background-color: $base_color;
 }
@@ -138,6 +148,35 @@ $disk_space_free: darken($bg_color, 3%);
         background-color: $selected_bg_color;
     }
 }
+
+// Floating Bar
+.nautilus-window .floating-bar {
+    padding: 1px;
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+    border-radius: 3px 0 $wm_radius - 2px 0;
+
+    &.bottom.left {
+        border-top-left-radius: 0;
+    }
+    &.bottom.right {
+        border-top-right-radius: 0;
+    }
+
+    button {
+        border: none;
+        border-radius: 100px;
+        min-height: 0;
+        min-width: 0;
+        padding: 0;
+        margin-right: 6px;
+        -gtk-icon-shadow: none;
+        @extend %selected-button;
+    }
+}
+
+// Reset maximized nautilus-window floating-bar border-radius
+.nautilus-window.maximized .floating-bar { border-radius: 3px 0 0 0; }
 
 //
 // Nemo
@@ -311,8 +350,9 @@ $disk_space_free: darken($bg_color, 3%);
 }
 
 .gedit-side-panel-paned statusbar {
-    border-top: 1px solid $borders_color;
+    border-top: none;
     background-color: $bg_color;
+    border-radius: 0 0 $wm_radius $wm_radius;
 }
 
 .gedit-search-slider {
@@ -345,6 +385,21 @@ $disk_space_free: darken($bg_color, 3%);
             border-right-width: 1px;
         }
     }
+}
+
+.gedit-side-panel-paned.horizontal {
+
+  // 'file-browser' pane
+  > box.vertical > stack > grid.horizontal {
+    > box.horizontal {  // header-part
+      margin: 4px 0;
+    }
+    > scrolledwindow { // raised widget
+      margin: 0 6px 6px 6px;
+      border-radius: 0;
+      box-shadow: $switch_shadow_1;
+    }
+  }
 }
 
 //
@@ -553,15 +608,12 @@ configurationview {
 }
 
 //
-// Epiphany
-//
-//EphyWindow .floating-bar { // Epiphany overrides the floating-bar style, so reset it
-//  color: $fg_color;
-//}
-//
 //  * Gnome-Logs *
 //
+
 window.background > box.vertical box.horizontal {
+
+  list.categories { border-radius: 0 0 0 $wm_radius; } // side-pane
 
     > box.vertical > scrolledwindow > viewport.frame > list {
 
@@ -638,6 +690,7 @@ window.background > box.vertical box.horizontal {
 //
 // Gnome Documents
 //
+
 .documents-scrolledwin.frame {
     border-width: 0;
 }
@@ -717,16 +770,45 @@ button.documents-favorite:active:hover {
 //
 // Gnome Tweak Tool
 //
+
 .tweak-categories,
 .tweak-category:not(:selected):not(:hover) {
     background-image: _solid($base_color);
 }
 
+// sidebar on gnome tweak
+.tweak-categories { border-radius: 0 0 0 $wm_radius; }
+
 .tweak-titlebar-right,
-dialog.csd > headerbar.titlebar {
-    > switch {
-        margin: 8px 0;
+dialog.csd > headerbar.titlebar { > switch { margin: 8px 0; } }
+
+// /************************
+//  * Gnome-Control-Center *
+//  ************************/
+
+// users section
+
+stack > box.vertical > widget > overlay grid.horizontal > stack {
+  > button.toggle { }
+}
+
+// > 3.25.90
+scrolledwindow.view > viewport.frame > stack > list { // left-pane
+  > row.activatable { }
+}
+
+box.horizontal.titlebar > headerbar > stack > box.vertical {
+  > .title { margin: 0; }
+  > .subtitle { margin: -3px 0; }
+}
+
+dialog.background.csd {
+  > headerbar.titlebar {
+
+    > label:not(.title):not(.subtitle) {
+      font-weight: 700;
     }
+  }
 }
 
 //
@@ -801,9 +883,269 @@ gf-candidate-box {
     }
 }
 
+// /*************
+//  * RhythmBox *
+//  *************/
+
+// add top-border to inline-toolbar
+.sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar {
+  box-shadow: inset 0 1px $borders_color;
+  padding: 4px;
+  background-color: darken($bg_color, 3%);
+
+  button.image-button {
+//    min-width: 24px;
+//    min-width: 24px;
+//    padding: 2px;
+    &:active, &:checked { @include button(flat-active); }
+
+    > widget > box > image { padding: 0; }
+  }
+}
+
+// tweak sidebar styling
+.sidebar-paned {
+  scrolledwindow { border: none; }
+
+  treeview.view.sidebar { }
+}
+
+// tweak border and frame in alt-toolbar
+window.csd > box.vertical > box.vertical,
+window.solid-csd > box.vertical > box.vertical {
+  > toolbar.horizontal {
+    margin: -1px 0;
+    border-top: 1px solid $borders_color;
+    box-shadow: none;
+    background-color: transparent;
+
+    button {
+      min-height: 36px;
+      min-width: 36px;
+      padding: 0;
+      margin-top: 8px;
+      margin-bottom: 8px;
+//      &:hover { @include button(flat-hover); }
+      &:active, &:checked { @include button(flat-active); }
+    }
+  }
+
+  > frame {
+    margin: -1px 0;
+    padding: 0;
+
+    > border { border: none; }
+  }
+}
+
+// hard-coded spacing depends on non-scalable unit,
+// seems cover-art widget is the most biggest thing?
+
+window.background > box.vertical > toolbar.primary-toolbar {
+
+  toolitem {
+    .linked > button.image-button.raised { // 'shuffle/repeat'
+      min-height: 36px;
+      min-width: 36px;
+      padding: 0;
+      margin: 0;
+//      &:hover { @include button(flat-hover); }
+      &:active, &:checked { @include button(flat-active); }
+      > widget > box > image { padding: 0; }
+    }
+
+    button.flat.scale { // 'volume'
+      min-height: 24px;
+      min-width: 36px;
+      padding: 0;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+
+    > box.horizontal:not(.linked) > button.toggle,
+    > .linked > button:not(.toggle):not(.raised):not(.flat) {
+      min-height: 28px;
+      min-width: 28px;
+      padding: 0;
+      margin: 0;
+//      &:hover { @include button(flat-hover); }
+      &:active, &:checked { @include button(flat-active); }
+    }
+  }
+}
+
+// /********************
+//  * Gnome-Calculator *
+//  ********************/
+
+window.background {
+  > headerbar.titlebar { // mode-selector button
+    > button.flat.popup.toggle.text-button.title {
+      // .title class existed
+      margin: 6px 0; // set standard margins
+
+      > grid > widget { // down arrow
+        padding-top: 3px;
+        // add spacing between arrow and label
+        &:dir(ltr) { padding-left: 4px; }
+        &:dir(rtl) { padding-right: 4px; }
+      }
+    }
+  }
+
+  > grid.vertical > box.vertical > widget,
+  > grid.vertical > box.vertical > box.vertical > widget,
+  > grid.vertical > box.vertical grid.math-buttons {
+    button {
+      font-weight: 700;
+
+      &:not(.suggested-action) {
+        &:active { @include button(flat-active); }
+        &:checked { @include button(flat-checked); }
+      }
+
+      &.suggested-action {  // '=' button
+      }
+    }
+  }
+}
+
+// /************
+//  * Epiphany *
+//  ************/
+
+$question_bg_color: #FFEA00;
+
+// incognito-mode styling
+//
+// most of widget styling are hard-coded by ephy's stylesheet,
+// but we should force using dark foregrounds at least...
+
+headerbar.titlebar.incognito-mode {
+  entry {
+    @include entry(header-normal);
+
+    &:focus { @include entry(header-focus); }
+    &:disabled { @include entry(header-insensitive); }
+  }
+
+//  button:not(.destructive-action):not(.suggested-action) {
+//    // these classes are specificity bump to override titlebuttons
+//    &:not(.appmenu):not(.icon):not(:indeterminate) {
+//      &,
+//      &:hover,
+//      &:active,
+//      &:checked {
+//        * { }
+//      }
+//      &:disabled,
+//      &:checked:disabled {
+//        * { }
+//      }
+//    }
+//  }
+}
+
+// reset inverted foreground colour
+notebook > box > stack > box.vertical > paned.vertical > overlay {
+  > .floating-bar { color: rgba($fg_color, 0.75); }
+}
+
+.background:not(.csd) > box.vertical > headerbar {
+  // conflicts with .primary-toolbar styling?
+  .linked > button.image-button { // = 'back/forward' button
+
+  }
+}
+
+// overrides foregrounds for 3.24's ssd-mode
+.background headerbar entry {
+  &.starred,
+  &.non-starred {
+    @include entry(header-normal);
+
+    &:focus { @include entry(header-focus); }
+    &:disabled { @include entry(header-insensitive); }
+  }
+
+  // render yellow 'star' icon if bookmarked
+  &.starred > image.right {
+    color: darken($question_bg_color, 10%);
+    &:hover,
+    &:active,
+    &:checked { color: $question_bg_color; }
+  }
+}
+
+// popover for downloaded lists
+popover.background:not(.emoji-picker) > box.vertical {
+  // For clean button
+  button:not(.destructive-action):not(.suggested-action):only-child {
+    &:active, &:checked { @include button(flat-active); }
+  }
+}
+
+popover.background:not(.emoji-picker) > box.vertical > scrolledwindow {
+  // re-define background colours for GtkListBox
+  > viewport.frame > list.background {
+    background-color: transparent;
+
+    > row.activatable {
+      background-color: if($variant=='light', $bg_color, lighten($bg_color, 10%));
+      color: rgba($fg_color, 0.85);
+      border-radius: $bt_radius;
+      border: 1px solid $borders_color;
+      margin: 2px;
+      @if $variant=='light' { box-shadow: $button_shadow_1, inset 0 0 0 1px rgba($borders_color, 0.01); }
+
+      &:hover { @include button(hover); }
+      &:active, &:checked { @include button(flat-active); }
+    }
+  }
+}
+
+// popover for bookmarks
+popover.background:not(.emoji-picker) > box.vertical > stack > box.vertical {
+
+  scrolledwindow > viewport.frame {
+    border: 1px solid $borders_color;
+
+    > list.background > row.activatable.bookmarks-row {
+      background-color: rgba($base_color, 0.35);
+      color: rgba($fg_color, 0.85);
+      border-bottom: 1px dashed rgba($borders_color, 0.05);
+      padding: 6px;
+
+      &:hover,
+      &:active,
+      &:checked { color: $fg_color; background-color: rgba($fg_color, 0.05); }
+
+      button.flat {
+        min-width: 16px;
+        min-height: 16px;
+        padding: 4px; // Same as of image.sidebar-icon
+//        margin: 0 4px;
+        border-radius: 100px;
+        -gtk-outline-radius: 100px;
+      }
+    }
+  }
+}
+
+// bookmark-tag flowbox-childs (almost hard-coded)
+flowboxchild.bookmark-tag-widget {
+  color: $bg_color; // unchecked
+  font-weight: 500;
+
+  label { margin-bottom: 2px; }
+
+  &-selected { color: $selected_fg_color; } // checked
+}
+
 //
 // Mate OSD Window
 //
+
 MsdOsdWindow.background.osd {
     border-radius: 2px;
     border: 1px solid darken($osd_bg_color, 8%);
@@ -824,6 +1166,7 @@ MsdOsdWindow.background.osd {
 //
 // Mate/Gnome Flashback Panel
 //
+
 .mate-panel-menu-bar,
 panel-toplevel.background {
 
@@ -919,34 +1262,6 @@ panel-toplevel.background {
         image {
             color: inherit;
         }
-    }
-}
-
-//
-// Floating Bar
-//
-.nautilus-window .floating-bar {
-    padding: 1px;
-    background-color: $selected_bg_color;
-    color: $selected_fg_color;
-    border-radius: 2px 2px 0 0;
-
-    &.bottom.left {
-        border-top-left-radius: 0;
-    }
-    &.bottom.right {
-        border-top-right-radius: 0;
-    }
-
-    button {
-        border: none;
-        border-radius: 100px;
-        min-height: 0;
-        min-width: 0;
-        padding: 0;
-        margin-right: 6px;
-        -gtk-icon-shadow: none;
-        @extend %selected-button;
     }
 }
 
@@ -1113,7 +1428,12 @@ panel-toplevel.background {
 window.background:not(.csd) {
   > widget {
     // for the bookmark toolbar's separators
-    > separator { color: $borders_color; }
+    > separator {
+      padding-top: 1px;
+      margin-top: 1px;
+      min-height: 2px;
+      background-color: rgba($borders_color, 0.07);
+    }
 
     // avoid black border
     > scrollbar { background-clip: border-box; }
@@ -1129,7 +1449,8 @@ window.background:not(.csd) {
       box-shadow: inset 0 0 0 1px rgba($borders_color, 0.02);
     }
 
-    > entry {
+    > entry,
+    .entry { // Set for linked entrys
 //      min-height: 26px;
       border-radius: $bt_radius;
       background-image: image($base_color);
@@ -1142,24 +1463,40 @@ window.background:not(.csd) {
       background-image: image($button_bg);
       border: 1px solid $borders_color;
       &:active { background-image: image($header_button_active_bg); }
+
+      // Fixed thunderbird linked entry spinbutton border-radius.
+      .entry { border-top-right-radius: 0;  border-bottom-right-radius: 0; }
     }
 
     > button > button {
 //      padding: 2px 6px;
 //      background-size: auto;
 //      color: $fg_color;
+      min-height: 24px;
 
       &:active {
         background-image: image($header_button_active_bg);
         border: none;
         box-shadow: inset 0 0 0 1px $borders_color;
       }
+
+      label { padding: 4px 6px; }
     }
   }
 
-  > menu > separator { color: $borders_color; }
-  > menu > menuitem > label:disabled { color: $insensitive_fg_color; }
+  > menu,
+  .menu { // context-menus
+    background-color: if($variant == 'light', $base_color, lighten($bg_color, 5%));
+    border-radius: 0;
+//    border: 1px solid $borders_color;
 
+    .separator:not(label),
+    .csd & .separator:not(label) { color: $borders_color; }
+  }
+  > menu > menuitem { padding: 4px 6px; }
+  > menu > menuitem > label:disabled { color: $insensitive_fg_color; }
+  > menu > menuitem > radio,
+  > menu > menuitem > check { padding: 0 2px 0 4px; }
 }
 
 // /*******************
@@ -1181,7 +1518,7 @@ window.background:not(.csd) {
   scrolledwindow { background-color: $bg_color; }
 
   scrollbar {
-    background-color: if($variant == 'light', $base_color, lighten($bg_color, 20%));
+    background-color: transparent;
     slider {
       background-color: mix($fg_color, $bg_color, 45%);
       &:hover { background-color: mix($fg_color, $bg_color, 60%); }
@@ -1198,14 +1535,12 @@ window.background:not(.csd) {
   }
 
   > window.background > menu { // context-menus
-    background-color: $base_color;
+    background-color: if($variant == 'light', $base_color, lighten($bg_color, 5%));
+    border-radius: 0;
+    border-color: $borders_color;
 
     // revert to standard separators
-    > separator {
-      padding: 0;
-      border: none;
-      background-color: $borders_color;
-    }
+    > separator { margin-top: 2px; margin-bottom: 2px; background-color: $borders_color; }
   }
 
   > widget {
@@ -1216,7 +1551,7 @@ window.background:not(.csd) {
     // FIXME: this affected to popover widget as well,
     // so we can not set $lighter_bg_color to search-bar...
     > scrolledwindow > textview {
-      background-color: if($variant == 'light', $base_color, lighten($bg_color, 8%));
+      background-color: if($variant == 'light', $base_color, lighten($bg_color, 5%));
 
       text {
         background-color: transparent;
@@ -1227,6 +1562,55 @@ window.background:not(.csd) {
       }
     }
   }
+}
+
+ /***************
+  * Chrome(ium) *
+  ***************/
+
+window.background.chromium {
+  // checked-tab & toolbar & button widgets
+//  background-color: $bg_color;
+//  color: $text_color;
+
+  headerbar.titlebar {
+    button.toggle { // account-button (> 64.0.3282?)
+      border: none;
+      background-color: transparent;
+      background-image: none;
+
+      &:hover { @include button(flat-hover); }
+      &:checked, &:active { @include button(flat-active); }
+    }
+
+    // from nav_button_provider_gtk3.cc (> 62.0.3202?)
+    button.titlebutton { // title-buttons
+      // define global titlebutton class sizing
+      min-width: 22px; // > 16px causes image blurring
+      min-height: 22px;
+      margin: 0; // unset margins
+      padding: 0;
+      color: transparent; // hide stock icons
+    }
+  }
+
+  // FIXME: not for actual button widgets but for toolbar's separators
+  // crazy: src/+/master/chrome/browser/ui/libgtkui/gtk_ui.cc#891
+  button { // for active-tab borders
+    border-width: 1px;
+    border-style: solid;
+    border-color: $borders_color;
+  }
+
+  entry.chromium {
+    &, &:focus { // overrides standard borders
+      border-image: none;
+      border: 1px solid $borders_color;
+    }
+  }
+
+  // internal region of toolbar's entry widget
+  > textview.view { background-color: $base_color; }
 }
 
 /****************
@@ -1274,3 +1658,69 @@ window.background:not(.solid-csd) {
         }
     }
 }
+
+// /************
+//  * Synaptic *
+//  ************/
+
+window > box.vertical > box.horizontal {
+  > toolbar {
+    background-color: transparent;
+    box-shadow: none;
+
+    toolitem > box {
+      label,
+      entry {
+        min-height: 20px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        font-size: 90%;
+      }
+
+      > label { color: $fg_color; }
+    }
+  }
+
+  > widget { background-color: transparent; }
+}
+
+//
+// Wingpanel Popover
+//
+//WingpanelWidgetsIndicatorPopover.popover {
+//  padding: 0;
+//
+//  text-shadow: none;
+//  -gtk-icon-shadow: none;
+//
+//  menuitem {
+//    padding: 5px;
+//    outline-color: transparent;
+//    text-shadow: none;
+//    -gtk-icon-shadow: none;
+//    border: solid transparent;
+//    border-width: 1px 0;
+//
+//    label, image { padding: 0 3px; }
+//
+//    &:hover, &:active {
+//      background-color: if($variant == 'light', transparentize(black, 0.96), transparentize(white, 0.95));
+//      border: solid if($variant == 'light', transparentize(black, 0.92), transparentize(white, 0.93));
+//      border-width: 1px 0;
+//    }
+//    *:disabled { color: $insensitive_fg_color; }
+//  }
+//}
+//
+// Pantheon Terminal
+//
+//PantheonTerminalPantheonTerminalWindow.background {
+//   background-color: transparent;
+//}
+//
+// Switchboard
+//
+//SwitchboardCategoryView .view:selected,
+//SwitchboardCategoryView .view:selected:focus {
+//  color: $fg_color;
+//}

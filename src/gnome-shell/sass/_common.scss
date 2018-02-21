@@ -145,7 +145,7 @@ StScrollBar {
 
 /* Slider */
 
-$slider_color: if($variant == 'light', white, white);
+$slider_color: if($variant == 'light', $accent_color, white);
 
 .slider {
   height: 20px;
@@ -555,30 +555,32 @@ $slider_color: if($variant == 'light', white, white);
 /* Popovers/Menus */
 
 .popup-menu {
-  min-width: 160px;
+  min-width: 12em;
   background-color: transparent;
 
   .popup-menu-arrow { } //defined globally in the TOP BAR
   .popup-sub-menu {
-    background-color: rgba($alt_base_color, 0.45);
+    background-color: rgba($alt_base_color, 0.35);
     box-shadow: $shadow_0;
-    border-radius: 0 0 3px 3px;
+    border-radius: 0 0 $material_radius $material_radius;
   }
 
   .popup-menu-content { padding: 6px 0; margin: 0 2px; }
   .popup-menu-item {
-    spacing: 8px;
+    spacing: 4px;
     transition-duration: $shorter_duration;
-    border-radius: 3px;
+    border-radius: $material_radius;
 
     &:ltr { padding: 0.4em 24px 0.4em 0; }
     &:rtl { padding: 0.4em 0 0.4em 24px; }
     &:checked {
       background-color: $primary_color;
       color: $inverse_fg_color;
-      box-shadow: $shadow_0;
+      box-shadow: inset 0 -1px rgba(black, 0.15);
       font-weight: normal;
-      border-radius: 3px 3px 0 0;
+      border-radius: $material_radius $material_radius 0 0;
+      text-shadow: 0 1px rgba(black, 0.45);
+
       &.selected {
         background-color: mix($inverse_fg_color, $primary_color, percentage($lower_opacity / 2));
         color: $inverse_fg_color;
@@ -630,23 +632,23 @@ $slider_color: if($variant == 'light', white, white);
     -arrow-base: 0;
     -arrow-rise: 0;
     -arrow-box-shadow: none; //dreaming. bug #689995
-    margin: 6px;
-    background-color: rgba($base_color, 0.9);
-    border-radius: $bt_radius - 3px;
+    margin: 2px 6px 6px;
+    background-color: $menu_bg_color;
+    border-radius: $material_radius;
     box-shadow: $shadow_2;
   }
 
   .popup-separator-menu-item {
     height: 1px; //not really the whole box
     margin: 0 38px;
-    background-color: transparent;
-    border-color: rgba($border_color, 0.1);
-    border-bottom-width: 1px;
+    background-color: $border_color;
+    border-color: transparent;
+    border-bottom-width: 0;
     border-bottom-style: solid;
   }
 
 // Background menu
-.background-menu { -boxpointer-gap: 4px; -arrow-rise: 0; }
+.background-menu { -boxpointer-gap: 8px; -arrow-rise: 0; }
 
 /* fallback menu
 - odd thing for styling App menu when apparently not running under shell. Light Adwaita styled
@@ -810,7 +812,7 @@ $slider_color: if($variant == 'light', white, white);
 /* TOP BAR */
 
 #panel {
-  background-color: $panel_bg_color;;
+  background-color: $panel_bg_color;
   /* transition from solid to transparent */
   transition-duration: 250ms;
   font-weight: bold;
@@ -1634,7 +1636,7 @@ $slider_color: if($variant == 'light', white, white);
   .app-well-app-running-dot { //running apps indicator
     width: 5px; height: 5px;
     border-radius: 3px;
-    background-color: $inverse_fg_color;
+    background-color: $primary_color;
     margin-bottom: 0;
   }
 

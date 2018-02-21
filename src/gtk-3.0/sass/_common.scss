@@ -5,6 +5,7 @@
 $asset_suffix: if($variant=='dark', '-dark', ''); // use dark assets in dark variant
 $darker_asset_suffix: if($darker=='true', '-dark', $asset_suffix);
 $bt_radius: 5px;
+$wm_radius: 6px;
 
 * {
   background-clip: padding-box;
@@ -33,9 +34,20 @@ $bt_radius: 5px;
 //
 // Base States
 //
+
 .background {
+//  border-radius: 0 0 $wm_radius $wm_radius;
   color: $fg_color;
-  background-color: if($transparency == 'true', transparentize($bg_color, 0.001), $bg_color); // without this headerbar transparency doesn't seem to work
+  // without this headerbar transparency doesn't seem to work
+  background-color: if($transparency == 'true', transparentize($bg_color, 0.001), $bg_color);
+
+  &.csd,
+  &.ssd, &.osd { border-radius: 0 0 $wm_radius $wm_radius; } // Set csd windows botttom border radius
+  &.maximized, &.solid-csd { border-radius: 0; } // No radius when windows maximized
+}
+
+.popup.background {
+  background-color: transparent; // without this menus transparency doesn't work
 }
 
 *:disabled { -gtk-icon-effect: dim; }
@@ -65,9 +77,13 @@ $bt_radius: 5px;
 %view {
   color: $text_color;
   background-color: $base_color;
+  transition: all 200ms $ease-out-quad;
+
+  &:hover { background-color: if($variant=='light', darken($base_color, 3%), lighten($base_color, 3%)); }
 
   &:selected {
     &, &:focus {
+      transition: all 350ms $ease-out-quad;
       @extend %selected_items;
       border-radius: $bt_radius;
     }
@@ -78,8 +94,7 @@ $bt_radius: 5px;
 textview {
   text {
     @extend %view;
-
-    selection { &:focus, & { @extend %selected_items; }}
+    selection { &:focus, & { @extend %selected_items; } }
   }
 }
 
@@ -302,6 +317,45 @@ treeview entry {
   }
 }
 
+.entry-tag {
+  $tag_height: 24px;
+  $tag_margin: 8px;
+
+  margin: $tag_margin; // instead of min-height: $tag_height;
+  border-radius: 3px;
+  box-shadow: none;
+  background-color: $selected_bg_color;
+  color: $selected_fg_color;
+  border: none;
+
+  &:hover { box-shadow: 0 0 0 1px $borders_color; }
+
+  // side margins: compensate the entry padding with a negative margin
+  // then the negative margin itself
+  :dir(ltr) & {
+    margin-left: 8px;
+    margin-right: $tag_margin - 8px;
+    padding-left: 8px;
+    padding-right: ($tag_height - 16px) / 2;
+  }
+
+  :dir(rtl) & {
+    margin-left: $tag_margin - 8px;
+    margin-right: 8px;
+    padding-left: ($tag_height - 16px) / 2;
+    padding-right: 8px;
+  }
+
+  // seems any sizing doesn't work
+  &.button {
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+
+    &:not(:hover):not(:active) { color: $insensitive_fg_color; }
+  }
+}
+
 //
 // Buttons
 //
@@ -366,7 +420,7 @@ button {
     @include button(active);
 
     background-clip: if($variant=='light', border-box, padding-box);
-    transition-duration: 50ms;
+    transition-duration: 200ms;
 
     &:not(:disabled) label:disabled { color: inherit; opacity: 0.6; }
   }
@@ -760,7 +814,11 @@ modelbutton.flat {
     background-color: if($variant=='light', mix($fg_color,$bg_color,5%), mix($fg_color,$bg_color,10%));
     transition-duration: 50ms;
   }
-  &:active, &:selected { &, arrow { @include button(header-checked); } }
+  &:active, &:selected { &, arrow {
+      @include button(header-checked);
+      transition: none;
+      animation: none; }
+  }
   &:checked { color: $fg_color; }
   &:disabled { color: $insensitive_fg_color; }
 
@@ -911,7 +969,7 @@ combobox {
   }
 
   .linked:not(.vertical) > &:first-child > box > button.combo { @extend %linked:first-child; }
-  .linked:not(.vertical) > &:last-child > box > button.combo { @extend %linked:last-child; arrow { border-radius: 0 $bt_radius $bt_radius 0; }}
+  .linked:not(.vertical) > &:last-child > box > button.combo { @extend %linked:last-child; arrow { border-radius: 0 $bt_radius $bt_radius 0; } }
   .linked:not(.vertical) > &:only-child > box > button.combo { @extend %linked:only-child; }
 
   .linked.vertical > & > box > button.combo { @extend %linked_vertical_middle; }
@@ -935,7 +993,7 @@ toolbar {
   .osd & { background-color: transparent; }
 
   &.osd {
-    padding: 7px;
+    padding: 8px;
     border: 1px solid $borders_color;
     border-radius: $bt_radius;
     background-color: transparentize($osd_bg_color, 0.1);
@@ -994,19 +1052,29 @@ searchbar {
   border-color: $bar_border;
   border-width: 0 0 1px;
   padding: 3px;
+
+  // Close button on searchbar
+  button.flat {
+    min-height: 16px;
+    min-width: 16px;
+    margin: 4px 6px;
+    padding: 0 2px;
+    border-radius: 100px;
+  }
 }
 
 actionbar {
   padding: 6px;
   border-top: 1px solid $borders_color;
   background-color: darken($bg_color, 3%);
+  border-radius: 0 0 $wm_radius $wm_radius;
 }
 
 //
 // Headerbars
 //
 
-$_header_radius: if($darker=='false' and $variant=='light', $bt_radius + 1px, $bt_radius + 1px);
+$_header_radius: if($darker=='false' and $variant=='light', $wm_radius, $wm_radius);
 
 $_header_image: if($darker=='false' and $variant=='light',
                 linear-gradient(0deg, $header_bottom 0%,
@@ -1116,6 +1184,7 @@ headerbar,
     .fullscreen & { box-shadow: none; }
 
     button.titlebutton {
+      border: none;
       min-height: 20px;
       min-width: 20px;
       margin: 0;
@@ -1141,9 +1210,14 @@ headerbar,
 headerbar {
   @extend %header_widgets;
 
-  entry, button, separator {
+  button, separator {
     margin-top: 6px;
     margin-bottom: 6px;
+  }
+
+  entry {
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   // Fixes split headerbars
@@ -1536,7 +1610,7 @@ headerbar {
   }
 
   &:hover { box-shadow: none; }
-    
+
   &.text-button.image-button label { padding-left: 0; padding-right: 0; }
 
   &.text-button.image-button, & {
@@ -1703,6 +1777,10 @@ treeview.view {
 //
 // Menus
 //
+
+$_menu_bg: if($variant=='light', $base_color, $bg_color);
+$_menu_bd: if($variant=='light', rgba(black, 0.05), rgba(white, 0.08));
+
 menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
@@ -1737,19 +1815,18 @@ menubar,
 }
 
 menu,
+.context-menu,
 .menu {
-  $_menu_bg: if($variant=='light', $base_color, $bg_color);
-  $_menu_bd: if($variant=='light', rgba(black, 0.05), rgba(white, 0.05));
   margin: 0;
-  padding: 6px 0;
-  border-radius: $bt_radius - 3px;
-  background-color: opacify($_menu_bg, 1);
-  border: 1px solid $_menu_bd;
+  padding: 10px 0;
+  border-radius: $wm_radius;
+  background-color: if($transparency == 'true', rgba($_menu_bg, 0.95), $_menu_bg);
+//  border: 1px solid $borders_color;
 
   .csd & {
-      border-radius: $bt_radius - 3px;
-      background-color: opacify($_menu_bg, 1);
-      border: 1px solid $_menu_bd;
+      border-radius: $wm_radius;
+      background-color: if($transparency == 'true', rgba($_menu_bg, 0.95), $_menu_bg);
+      border: 1px solid $borders_color;
     }
 
   separator,
@@ -1761,8 +1838,8 @@ menu,
   }
 
   // Firefox workaround
-  .separator:not(label),
-  .csd & .separator:not(label) { color: $_menu_bg; }
+//  .separator:not(label),
+//  .csd & .separator:not(label) { color: $_menu_bg; }
   // Firefox workaround end
 
   menuitem {
@@ -1778,6 +1855,7 @@ menu,
       text-shadow: $text_shadow;
       border-top: 1px solid transparent;
       border-bottom: 1px solid darken($selected_bg_color, 10%);
+      arrow { color: $selected_fg_color; -gtk-icon-shadow: if($variant=='light', $text_shadow, none); }
     }
     &:disabled {
       color: $insensitive_fg_color;
@@ -1787,14 +1865,18 @@ menu,
     arrow {
       min-height: 16px;
       min-width: 16px;
+      background-color: transparent;
+      background-image: none;
+      border: none;
+      color: $fg_color;
 
       &:dir(ltr) {
         -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
-        margin-left: 10px;
+        margin-right: 0;
       }
       &:dir(rtl) {
-        -gtk-icon-source:-gtk-icontheme('pan-end-symbolic-rtl');
-        margin-right: 10px;
+        -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl');
+        margin-left: 0;
       }
     }
     @at-root menuitem {
@@ -1821,12 +1903,12 @@ menu,
     color: $fg_color;
 
     &.top {
-      margin-top: -18px;
+      margin: -8px 1px 0 1px;
       border-bottom: 1px solid $borders_color;
       -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
     }
     &.bottom {
-      margin-bottom: -18px;
+      margin: 0 1px -28px 1px;
       border-top: 1px solid $borders_color;
       -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
     }
@@ -1842,18 +1924,27 @@ menu,
 //
 // Popovers
 //
-popover,
-popover.background {
-  $_popover_bg: if($variant=='light', $base_color, $bg_color);
-  padding: 2px;
-  border-radius: $bt_radius;
-  background-clip: border-box;
-  background-color: $_popover_bg;
 
-  box-shadow: 0 2px 6px 0 if($variant=='light', transparentize(black, 0.93), transparentize(black, 0.85));
+$_popover_bg: if($variant=='light', $base_color, $bg_color);
+
+popover.background {
+  padding: 2px;
+  border-radius: $wm_radius;
+  background-color: if($transparency == 'true', rgba($_popover_bg, 0.95), $_popover_bg);
+
+  .csd &, & { border-radius: $wm_radius; }
+}
+
+popover {
+  padding: 2px;
+  border-radius: $wm_radius;
+  background-clip: border-box;
+  background-color: if($transparency == 'true', rgba($_popover_bg, 0.95), $_popover_bg);
+
+  box-shadow: 0 3px 6px 0 if($variant=='light', transparentize(black, 0.85), transparentize(black, 0.85));
 
   .csd &, & {
-      border-radius: $bt_radius;
+      border-radius: $wm_radius;
       border: 1px solid if($variant=='light', darken($borders_color, 5%), lighten($borders_color, 5%));
     }
 
@@ -2171,7 +2262,6 @@ scrollbar {
   }
 }
 
-
 %switch,
 switch {
   transition: $transition_1;
@@ -2184,7 +2274,7 @@ switch {
   &:disabled { color: gtkalpha(currentColor, 0.4); }
 
   &:checked {
-    animation: animation_1;
+    animation: $switch_animation;
     background-color: $success_color;
 
     &:disabled {
@@ -2216,8 +2306,6 @@ switch {
   &:checked:disabled slider { animation: none; }
 
   row & { @extend %switch_pixmap; }
-
-  row:selected & { @extend %switch_pixmap; }
 }
 
 //
@@ -2339,7 +2427,7 @@ scale {
 
   // Trough
   trough {
-    $_scale_trough_bg: darken($bg_color, 5%);
+    $_scale_trough_bg: rgba(black, 0.2);
 
     outline-offset: 2px;
     -gtk-outline-radius: 4.5px;
@@ -2347,11 +2435,11 @@ scale {
     border-radius: $bt_radius;
     background-color: $_scale_trough_bg;
 
-    &:disabled { background-color: transparentize($_scale_trough_bg, 0.45); }
+    &:disabled { background-color: rgba($_scale_trough_bg, 0.12); }
 
     //OSD troughs
     .osd & {
-      background-color: lighten($osd_bg_color, 7%);
+      background-color: $_scale_trough_bg;
 
       highlight {
         background-color: $selected_bg_color;
@@ -2888,8 +2976,8 @@ messagedialog { // Message Dialog styling
 
   &.csd { // rounded bottom border styling for csd version
     &.background {
-      border-bottom-left-radius: $bt_radius;
-      border-bottom-right-radius: $bt_radius;
+      border-bottom-left-radius: $wm_radius;
+      border-bottom-right-radius: $wm_radius;
       border: none;
     }
     .dialog-action-area button {
@@ -2912,10 +3000,10 @@ messagedialog { // Message Dialog styling
        }
 
       &:active, &:checked {
-          @include button(flat-active);
-          border-color: $borders_color;
-          text-shadow: $text_shadow;
-        }
+        @include button(flat-active);
+        border-color: $borders_color;
+        text-shadow: $text_shadow;
+      }
     }
 
     %middle_button {
@@ -2923,15 +3011,15 @@ messagedialog { // Message Dialog styling
       border-right-style: none;
     }
     %last_button {
-      border-radius: 0 0 $bt_radius 0;
+      border-radius: 0 0 $wm_radius 0;
       border-right-style: none;
     }
     %first_button {
-      border-radius: 0 0 0 $bt_radius;
+      border-radius: 0 0 0 $wm_radius;
       border-left-style: none;
     }
     %single_button {
-      border-radius: 0 0 $bt_radius $bt_radius;
+      border-radius: 0 0 $wm_radius $wm_radius;
       border-left-style: none;
       border-right-style: none;
     }
@@ -3214,12 +3302,15 @@ infobar {
 //
 tooltip {
   &.background {
+    &, &.csd {
     // background-color needs to be set this way otherwise it gets drawn twice
     // see https://bugzilla.gnome.org/show_bug.cgi?id=736155 for details.
     background-color: lighten($osd_bg_color, 10%);
     background-clip: padding-box;
+    border-radius: $bt_radius;
 
     label { padding: 4px; }
+    }
   }
 
   border-radius: $bt_radius;
@@ -3417,7 +3508,7 @@ $_wm_border: if($variant=='light', transparentize(black, 0.9), transparentize(bl
 
 decoration {
   transition: $shadow_transition;
-  border-radius: if($darker=='false' and $variant=='light', $bt_radius $bt_radius 0 0, $bt_radius $bt_radius 0 0);
+  border-radius: if($darker=='false' and $variant=='light', $wm_radius, $wm_radius);
   border-width: 0;
   box-shadow: 0 5px 5px 0 if($variant == 'light', opacify($_wm_border, 0.15), opacify($_wm_border, 0.1)),
               0 8px 15px 0 if($variant == 'light', opacify($_wm_border, 0.15), opacify($_wm_border, 0.1)),
@@ -3433,35 +3524,37 @@ decoration {
                 0 3px 3px 0 if($variant == 'light', opacify($_wm_border, 0.15), opacify($_wm_border, 0.1)),
                 0 0 0 1px $borders_color;
   }
+
   .fullscreen &,
   .tiled & {
     border-radius: 0;
-    box-shadow: 0 3px 3px 0 if($variant == 'light', opacify($_wm_border, 0.15), opacify($_wm_border, 0.1));
+    box-shadow: 0 3px 3px 0 if($variant == 'light', opacify($_wm_border, 0.15), opacify($_wm_border, 0.1)),
+                0 0 0 1px $borders_color;
   }
   .popup & {
 //   box-shadow: none;
-    border-radius: $bt_radius;
+    border-radius: $wm_radius;
   }
   // server-side decorations as used by mutter
   .ssd & {
     margin: -5px;
-    border-radius: $bt_radius $bt_radius 0 0;
+    border-radius: $wm_radius $wm_radius 0 0;
     box-shadow: 0 0 5px 0 if($variant == 'light', opacify($_wm_border, 0.15), opacify($_wm_border, 0.1)), 0 0 0 1px $borders_color;
     &.maximized { border-radius: 0; }
   }
   .csd.popup & {
-    border-radius: $bt_radius;
+    border-radius: $wm_radius;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.12), 0 5px 5px rgba(0, 0, 0, 0.06);
   }
   tooltip.csd & {
-    border-radius: $bt_radius;
+    border-radius: $wm_radius;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
   }
   messagedialog.csd & {
-    border-radius: $bt_radius;
+    border-radius: $wm_radius;
   }
   .solid-csd & {
-    border: none;
+    border: 1px solid $bar_border;
     border-radius: 0;
     margin: 0;
     background-color: $header_bg;
@@ -3538,10 +3631,33 @@ headerbar,
 /*********
  * Emoji *
  *********/
-popover.emoji-picker { }
+popover.emoji-picker {
+  padding: 0;
+  border-radius: $wm_radius;
+
+  entry {
+    border-bottom: 1px solid $borders_color;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: none;
+    border-width: 0 0 1px 0;
+    padding: 4px 12px;
+//    margin: 2px 0 0 0;
+  }
+
+  scrolledwindow { border-bottom: 1px solid $borders_color; }
+}
 
 // mimic tab style
-button.emoji-section { }
+button.emoji-section {
+  margin-top: -1px;
+  padding: 2px 14px;
+  border-radius: 0;
+  outline-offset: -4px;
+  box-shadow: none;
+  &:first-child { border-radius: 0 0 0 $wm_radius; }
+  &:last-child { border-radius: 0 0 $wm_radius 0; }
+}
 
 .emoji {
   min-width: 3em;
