@@ -142,6 +142,10 @@
   }
 
   .workspace-add-button {
+    background-color: transparent;
+    background-image: none;
+    @extend %budgiebutton.flat;
+
     &:hover { box-shadow: none; }
 
     &:active { background-image: none; }
